@@ -1,0 +1,36 @@
+---
+  - name: Get facts for {{ name }}
+    purestorage.flashblade.purefb_info:
+      gather_subset:
+        - config
+      fb_url: "{{ url }}"
+      api_token: "{{ api }}"
+    register: blade_facts
+
+  - set_fact:
+      blade_managers: "{{ blade_facts['purefb_info']['config']['snmp_managers'] }}"
+
+  - name: Remove SNMP manager servers not matching template settings for {{ name }}
+    purestorage.flashblade.purefb_snmp_mgr:
+      name: "{{ manager.key }}"
+      state: absent
+      fb_url: "{{ url }}"
+      api_token: "{{ api }}"
+    when: snmp.snmp_managers | selectattr('snmp_host','equalto', manager.value.host) | list | count == 0
+    loop: "{{ blade_managers | dict2items}}"
+    loop_control:
+      loop_var: manager
+
+
+  - name: Configure SNMP settings for {{ name }}
+    purestorage.flashblade.purefb_snmp_mgr:
+      name: "{{ mgr.snmp_manager }}"
+      community: "{{ mgr.snmp_community }}"
+      host: "{{ mgr.snmp_host }}"
+      version: "{{ mgr.version }}"
+      fb_url: "{{ url }}"
+      api_token: "{{ api }}"
+    when: blade_managers |dict2items | selectattr('value.host', 'equalto', mgr.snmp_host) | list | count == 0
+    loop: "{{ snmp.snmp_managers }}"
+    loop_control:
+      loop_var: mgr

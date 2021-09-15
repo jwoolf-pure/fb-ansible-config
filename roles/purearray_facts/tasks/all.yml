@@ -1,0 +1,15 @@
+---
+  - name: Get facts for {{ name }}
+    purestorage.flashblade.purefb_info:
+      gather_subset:
+        - all
+      fb_url: "{{ url }}"
+      api_token: "{{ api }}"
+    register: blade_facts
+  
+  - name: Facts for {{ name }}
+    debug:
+      msg: "{{ blade_facts }}"
+      #msg: "{{ blade_facts['purefb_info']['config']['alert_watchers'] }}"
+      #msg: "{{ blade_facts['purefb_info']['config']['syslog'] }}"
+

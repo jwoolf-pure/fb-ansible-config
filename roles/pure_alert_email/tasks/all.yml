@@ -1,0 +1,35 @@
+---
+  - name: Get facts for {{ name }}
+    purestorage.flashblade.purefb_info:
+      gather_subset:
+        - config
+      fb_url: "{{ url }}"
+      api_token: "{{ api }}"
+    register: blade_facts
+
+  - set_fact:
+      system_email_addrs: "{{ blade_facts['purefb_info']['config']['alert_watchers'] }}"
+
+  - name: Delete Alert email entries not in the template for {{ name }}
+    purestorage.flashblade.purefb_alert:
+      address: "{{ sys_item.name }}"
+      state: absent
+      fb_url: "{{ url }}"
+      api_token: "{{ api }}"
+    when: sys_item.name not in alert.alert_emails
+    loop: "{{ system_email_addrs }}"
+    loop_control:
+      loop_var: sys_item
+
+  - name: Add Alert Email entries for {{ name }}
+    purestorage.flashblade.purefb_alert:
+      address: "{{ email_item }}"
+      enabled: true
+      state: present
+      fb_url: "{{ url }}"
+      api_token: "{{ api }}"
+    when: system_email_addrs | selectattr('name','equalto', email_item) | list | count == 0
+    loop: "{{ alert.alert_emails }}"
+    loop_control:
+      loop_var: email_item
+

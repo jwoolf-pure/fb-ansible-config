@@ -1,0 +1,36 @@
+---
+#  - name: Get facts for {{ name }}
+#    purestorage.flashblade.purefb_info:
+#      gather_subset:
+#        - config
+#      fb_url: "{{ url }}"
+#      api_token: "{{ api }}"
+#    register: blade_facts
+#
+#  - set_fact:
+#      blade_ds_roles: "{{ blade_facts['purefb_info']['config']['directory_service_roles'] }}"
+
+
+  - name: Configure Directory Service Roles for {{ name }}
+    purestorage.flashblade.purefb_dsrole:
+      role: "{{ ds_role.value.role }}"
+      group_base: "{{ ds_role.value.group_base }}"
+      group: "{{ ds_role.value.group }}"
+      fb_url: "{{ url }}"
+      api_token: "{{ api }}"
+    loop: "{{ all_ds_roles.ds_roles|dict2items }}"
+    loop_control:
+      loop_var: ds_role
+
+
+
+#  - name: Configure Directory Service Roles for {{ name }}
+#    purestorage.flashblade.purefb_dsrole:
+#      role: "{{ ds_role.value.role }}"
+#      group_base: "{{ ds_role.value.group_base }}"
+#      group: "{{ ds_role.value.group }}"
+#      fb_url: "{{ url }}"
+#      api_token: "{{ api }}"
+#    loop: "{{ all_ds_roles.ds_roles|dict2items }}"
+#    loop_control:
+#      loop_var: ds_role

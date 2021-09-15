@@ -1,0 +1,14 @@
+- name: Test Lookup
+  hosts: localhost
+  
+  vars:
+      #file: /Users/jwoolf/PycharmProjects/Apple-Ansible/certs/cert.pem
+    file: /Users/jwoolf/PycharmProjects/Apple-Ansible/certs/global.pem
+    #motd_value: "{{ lookup('file', './cert.pem' ) }}"
+  tasks:
+  - name: Testing slurp
+    ansible.builtin.slurp:
+      src: "{{ file  }}"
+    register:  cert_file
+  - debug:
+      msg: "{{ cert_file['content'] | b64decode }}"

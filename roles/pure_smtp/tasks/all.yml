@@ -1,0 +1,7 @@
+---
+  - name: Configure SMTP settings for {{ name }}
+    purestorage.flashblade.purefb_smtp:
+      domain: "{{ smtp.sender_domain }}"
+      host: "{{ smtp.relay_host }}"
+      fb_url: "{{ url }}"
+      api_token: "{{ api }}"

@@ -1,0 +1,11 @@
+---
+  dns_site: "*npc_dns_opts"
+  proxy_site: "*npc_proxy_opts"
+  snmp_site: "*npc_snmp_opts"
+  alert_site: "*npc_alert_opts"
+  syslog_site: "*npc_syslog_opts"
+  smtp_site: "*npc_smtp_opts"
+  ds_site: "*npc_ds_opts"
+  ds_roles_site: "*npc_ds_roles_opts"
+  ntp_site: "*npc_ntp_opts"
+

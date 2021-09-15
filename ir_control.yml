@@ -1,0 +1,30 @@
+---
+- name: Copy site variables from files.
+  hosts: localhost
+  gather_facts: no
+  roles:
+      - role: copy-template
+  tags: [ 'all', 'template', 'ir_passwd', 'ir_execline']
+
+- name: Change the FB ir password
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - role: pure_ir_passwd
+  tags: [ 'all', 'ir_passwd' ]
+
+- name: Execute command as ir user
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - role: pure_ir_execline
+  tags: [ 'all', 'ir_execline' ]
+
+
+- name: Cleanup template copies.
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - role: cleanup-files
+  tags: [ 'all', 'template', 'ir_passwd', 'cleanup', 'ir_execline' ]
+

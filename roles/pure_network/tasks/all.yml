@@ -1,0 +1,24 @@
+---
+
+  - name: Create new network subnet named {{ data_network.name }}
+    purefb_subnet:
+      name: "{{ data_network.name }}"
+      prefix: "{{ data_network.prefix }}"
+      gateway: "{{ data_network.gateway }}"
+      mtu: "{{ data_network.mtu }}"
+      vlan: "{{ data_network.vlan }}"
+      state: present
+      fb_url: "{{ url }}"
+      api_token: "{{ api }}"
+
+
+  - name: Create new network interfaces
+    purefb_network:
+      name: "{{ interface.name }}"
+      address: "{{ interface.address }}"
+      state: present
+      fb_url: "{{ url }}"
+      api_token: "{{ api }}"
+    loop: "{{ data_network['interfaces'] }}"
+    loop_control:
+      loop_var: interface

@@ -1,0 +1,117 @@
+---
+- name: Read site variables to vars file and include it
+  hosts: localhost
+  gather_facts: no
+  roles:
+      - role: copy-template
+  tags: [ 'all', 'template', 'banner', 'gui', 'smis', 'dns', 'dsrole', 'ds', 'ntp', 'syslog', 'snmp', 'smtp', 'phonehome', 'proxy', 'alert_email', 'cert' , 'network']
+
+- name: Set The Data Network up
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - role: pure_network
+  tags: [ 'network' ]
+
+- name: Pure Storage FlashBlade Settings for Certificates
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - role: pure_cert
+  tags: [ 'all', 'cert' ]
+
+- name: Pure Storage FlashBlade Settings for DNS
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - role: pure_dns
+  tags: [ 'all','dns' ]
+
+- name: Pure Storage FlashBlade Settings for login banner
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - role: pure_banner
+  tags: [ 'all','banner' ]
+
+### Wrong version of API in lab
+#- name: Pure Storage FlashBlade Setting for GUI
+#  hosts: localhost
+#  gather_facts: no
+#  collections:
+#    - purestorage.flasharray
+#  roles:
+#    - role: pure_gui
+#  tags: [ 'all', 'gui' ]
+
+- name: Pure Storage FlashBlade Settings for Directory Service Roles
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - role: pure_dsrole
+  tags: [ 'all','dsrole' ]
+
+
+#- name: Pure Storage FlashBlade Settings for Directory Services
+#  hosts: localhost
+#  gather_facts: no
+#  roles:
+#    - role: pure_ds
+#  tags: [ 'all','ds' ]
+
+- name: Pure Storage FlashBlade Settings for NTP
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - role: pure_ntp
+  tags: [ 'all','ntp' ]
+
+- name: Pure Storage FlashBlade Settings for Syslog servers
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - role: pure_syslog
+  tags: [ 'all','syslog' ]
+
+- name: Pure Storage FlashBlade Settings for SNMP
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - role: pure_snmp
+  tags: [ 'all','snmp' ]
+
+- name: Pure Storage FlashBlade Settings for SMTP
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - role: pure_smtp
+  tags: [ 'all','smtp' ]
+
+- name: Pure Storage FlashBlade Settings for PhoneHome
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - role: pure_phonehome
+  tags: [ 'all','phonehome' ]
+
+- name: Pure Storage FlashBlade Settings for Proxy
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - role: pure_proxy
+  tags: [ 'all','proxy' ]
+
+- name: Pure Storage FlashBlade Settings for Alert Email
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - role: pure_alert_email
+  tags: [ 'all','alert_email' ]
+
+- name: Cleanup template copies.
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - role: cleanup-files
+  tags: [ 'all', 'template', 'banner', 'gui', 'smis', 'dns', 'dsrole', 'ds', 'ntp', 'syslog', 'snmp', 'smtp', 'phonehome', 'proxy', 'alert_email', 'cert']
+

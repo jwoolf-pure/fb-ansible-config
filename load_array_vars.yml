@@ -1,0 +1,14 @@
+- name: Gather Fb info
+  hosts: localhost
+  tasks:
+    - name: Load Array variables
+      load_array_vars:
+        site: npc
+        #flashblade: npc-pure-004f-p
+        flashblade: False
+      register: array_vars
+
+    - name: Show all flashblade info
+      debug:
+        msg: "{{ array_vars }}"
+

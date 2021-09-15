@@ -1,0 +1,8 @@
+---
+  - name: Set Login Banner for {{ name }}
+    purestorage.flashblade.purefb_banner:
+      banner: "{{ login_banner }}"
+      state: present
+      fb_url: "{{ url }}"
+      api_token: "{{ api }}"
+

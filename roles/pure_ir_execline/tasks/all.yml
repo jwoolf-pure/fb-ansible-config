@@ -1,0 +1,10 @@
+- name: Execute command on {{ name }}
+  execute_ir_commandline:
+    password: "{{ password }}"
+    command: "{{ command }}"
+    fb_url: "{{ url }}"
+  register: command_output
+
+- name: Show the output
+  debug:
+    msg: "{{ command_output }}"

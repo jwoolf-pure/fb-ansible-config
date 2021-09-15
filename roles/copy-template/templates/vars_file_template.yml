@@ -1,0 +1,195 @@
+---
+
+email_notify_user: jwoolf@purestorage.com
+mail_relay_host: localhost
+
+login_banner: "***W A R N I N G***\n\nTHIS IS A PRIVATE SYSTEM.\n"
+
+gui_timeout: 180
+
+npc_ntp: &npc_ntp_opts
+  ntp_servers:
+    - time.purestorage.com
+    - time1.purestorage.com
+wpc_ntp: &wpc_ntp_opts
+  ntp_servers:
+    - time.purestorage.com
+    - time1.purestorage.com
+
+npc_dns: &npc_dns_opts
+  dns_address:
+    - 172.29.10.252
+    - 172.29.10.253
+  dns_domain: prlb.flr.c360cloud.com
+wpc_dns: &wpc_dns_opts
+  dns_address:
+    - 172.29.10.252
+    - 172.29.10.253
+  dns_domain: prlb.flr.c360cloud.com
+
+npc_proxy_host: &npc_proxy_opts
+  state: present
+  proxy_host: proxy.example.com
+  proxy_port: 8080
+wpc_proxy_host: &wpc_proxy_opts
+  state: present
+  proxy_host: proxy.example.com
+  proxy_port: 8080
+
+npc_snmp:  &npc_snmp_opts
+  snmp_managers:
+    -
+      snmp_manager: manager
+      snmp_host: snmp.example.com
+      snmp_community: "{{ community_tag_a }}"
+      version: v2c
+    -
+      snmp_manager: manager2
+      snmp_host: snmpblah.example.com
+      snmp_community: "{{ community_tag_a }}"
+      version: v2c
+    -
+      snmp_manager: manager3
+      snmp_host: snmp3.example.com
+      snmp_community: "{{ community_tag_b }}"
+      version: v2c
+
+wpc_snmp:  &wpc_snmp_opts
+  snmp_managers:
+    -
+      snmp_manager: manager4
+      snmp_host: snmp4.example.com
+      snmp_community: public
+      version: v2c
+    -
+      snmp_manager: manager5
+      snmp_host: snmp5.example.com
+      snmp_community: public
+      version: v2c
+
+npc_alert: &npc_alert_opts
+  alert_emails:
+    - gse-mde-alerts-aaaad3bsacamd2v5nyeka6sgti@purestorage.slack.com
+    - rkemp@purestorage.com
+wpc_alert: &wpc_alert_opts
+  alert_emails:
+    - gse-mde-alerts-aaaad3bsacamd2v5nyeka6sgti@purestorage.slack.com
+    - rkemp@purestorage.com
+    - foo@bar.com
+
+npc_syslog: &npc_syslog_opts
+  syslog_servers:
+    -
+      name: blahblah1
+      address: 10.10.10.10
+      protocol: udp
+    -
+      name: blahblah2
+      address: 10.10.10.11
+      protocol: udp
+    -
+      name: blahblah3
+      address: 10.10.10.12
+      protocol: udp
+
+wpc_syslog: &wpc_syslog_opts
+  syslog_servers:
+    -
+      name: blahblah4
+      address: 10.10.10.50
+      protocol: udp
+    -
+      name: blahblah5
+      address: 10.10.10.51
+      protocol: udp
+
+npc_smtp: &npc_smtp_opts
+  sender_domain: 'purestorage.com'
+  relay_host: ''
+wpc_smtp: &wpc_smtp_opts
+  sender_domain: purestorage.com
+  relay_host: ''
+
+npc_ds_config: &npc_ds_opts
+  ds_uri: "{{ uri_1 }}"
+  base_dn: purestorage.com
+  bind_user: binduser
+  bind_password: foobar
+wpc_ds_config: &wpc_ds_opts
+  ds_uri: "{{ uri_2 }}"
+  base_dn: purestorage.com
+  bind_user: binduser
+  bind_password: foobar
+
+npc_ds_roles: &npc_ds_roles_opts
+  ds_roles:
+    array_admin:
+      role: array_admin
+      group_base: "OU=basegroup"
+      group: arrayadmins
+    ops_admin:
+      role: ops_admin
+      group_base: "OU=basegroup"
+      group: opsgroup
+    storage_admin:
+      role: storage_admin
+      group_base: "OU=basegroup"
+      group: storage_group
+    readonly:
+      role: readonly
+      group_base: "OU=basegroup"
+      group: ro_group
+
+wpc_ds_roles: &wpc_ds_roles_opts
+  ds_roles:
+    array_admin:
+      role: array_admin
+      group_base: "OU=basegroup"
+      group: arrayadmins
+    ops_admin:
+      role: ops_admin
+      group_base: "OU=basegroup"
+      group: opsgroup
+    storage_admin:
+      role: storage_admin
+      group_base: "OU=basegroupp"
+      group: storage_group
+    readonly:
+      role: readonly
+      group_base: "OU=basegroup"
+      group: ro_group
+
+# This is a template substitution that is done by the calling script
+
+
+ntp:
+  <<: {{ ntp_site }}
+
+dns:
+  <<: {{ dns_site }}
+
+proxy:
+  <<: {{ proxy_site }}
+
+snmp:
+  <<: {{ snmp_site }}
+
+alert:
+  <<: {{ alert_site }}
+
+slog:
+  <<: {{ syslog_site }}
+
+smtp:
+  <<: {{ smtp_site }}
+
+ds:
+  <<: {{ ds_site }}
+
+all_ds_roles:
+  <<: {{ ds_roles_site }}
+
+
+
+
+

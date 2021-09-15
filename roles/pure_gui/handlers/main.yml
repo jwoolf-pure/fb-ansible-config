@@ -1,0 +1,9 @@
+---
+# handlers file for pure_gui
+- name: Email Result
+  mail:
+    host: "{{ mail_relay_host }}"
+    port: 25
+    to: "{{ email_notify_user }}"
+    subject: Pure GUI Timeout configuation changed
+    body: "Pure System GUI Timeout configuration changed"

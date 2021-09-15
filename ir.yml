@@ -1,0 +1,14 @@
+---
+- name: Change the FB ir password
+  hosts: localhost
+  tasks:
+    - name: Change the password
+      change_ir_passwd:
+        old_password: new_pureuser
+        new_password: pureuser
+        fb_url: 172.29.10.190
+      register: password_output
+
+    - name: Show the output
+      debug:
+        msg: "{{ password_output }}"

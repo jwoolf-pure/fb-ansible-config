@@ -1,0 +1,9 @@
+---
+# handlers file for purearray
+- name: Email Result
+  mail:
+    host: "{{ mail_relay_host }}"
+    port: 25
+    to: "{{ email_notify_user }}"
+    subject: Pure Banner configuation changed
+    body: "Pure System Banner configuration changed"

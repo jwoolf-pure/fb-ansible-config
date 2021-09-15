@@ -1,0 +1,24 @@
+---
+
+  - name: Get Certificate contents
+    ansible.builtin.slurp:
+      src: "{{ cert_file }}"
+    register: cert_file_txt
+
+  - name: Get Certificate Key contents
+    ansible.builtin.slurp:
+      src: "{{ cert_key_file }}"
+    register: cert_key_file_txt
+
+  - name: show vars
+    debug:
+      msg: "{{ cert_file_txt['content'] | b64decode }}"
+
+  - name: Change or Modify Array Global Certificate
+    purestorage.flashblade.purefb_certs:
+      name: "{{ cert_name }}"
+      contents: "{{ cert_file_txt['content'] | b64decode }}"
+      private_key: "{{ cert_key_file_txt['content'] | b64decode }}"
+      # passphrase: <create a tag here for passphrase if needed>
+      fb_url: "{{ url }}"
+      api_token: "{{ api }}"

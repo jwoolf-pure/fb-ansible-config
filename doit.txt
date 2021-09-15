@@ -1,0 +1,12 @@
+
+source ./venv/bin/activate
+python -V
+which python
+which pip
+
+
+The above should show your python 3.8.5 and show the path to be inside ./venv/bin/python and ./venv/bin/pip
+
+If that works then, I'd just do a:
+
+pip install -r ./requirements.txt

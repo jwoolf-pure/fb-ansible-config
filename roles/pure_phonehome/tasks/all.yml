@@ -1,0 +1,5 @@
+---
+  - name: Enable phonehome for {{ name }}
+    purestorage.flashblade.purefb_phonehome:
+      fb_url: "{{ url }}"
+      api_token: "{{ api }}"

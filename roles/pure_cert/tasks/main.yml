@@ -1,0 +1,10 @@
+---
+  - name: Pure FlashBlade Settings Configuration Alert Email
+    include_tasks:
+      file: all.yml
+    vars:
+      name: "{{ item.name }}"
+      url: "{{ item.fb_url }}"
+      api: "{{ item.api_token }}"
+      ds_uri: "{{ item.ds_uri }}"
+    loop: "{{ target_arrays }}"

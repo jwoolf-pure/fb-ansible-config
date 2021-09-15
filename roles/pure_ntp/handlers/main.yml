@@ -1,0 +1,13 @@
+---
+# handlers file for purearray
+- name: Email on Change
+  command:
+    cmd: /bin/ls /etc
+
+- name: Email Result
+  mail:
+    host: "{{ mail_relay_host }}"
+    port: 25
+    to: "{{ email_notify_user }}"
+    subject: NTP configuation changed
+    body: "Pure System NTP configuration changed"

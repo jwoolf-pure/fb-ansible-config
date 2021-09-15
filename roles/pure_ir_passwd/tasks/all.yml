@@ -1,0 +1,12 @@
+---
+
+ - name: Change the password for {{ name }}
+   change_ir_passwd:
+     old_password: "{{ old_password }}"
+     new_password: "{{ new_password }}"
+     fb_url: "{{ url  }}"
+   register: password_output
+
+ - name: Show the output
+   debug:
+     msg: "{{ password_output }}"

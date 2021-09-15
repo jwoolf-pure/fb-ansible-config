@@ -1,0 +1,7 @@
+---
+  - name: Set NTP for {{ name }}
+    purestorage.flashblade.purefb_ntp:
+      state: present
+      ntp_servers: "{{ ntp.ntp_servers }}"
+      fb_url: "{{ url }}"
+      api_token: "{{ api }}"

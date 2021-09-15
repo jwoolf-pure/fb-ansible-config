@@ -1,0 +1,7 @@
+---
+  - name: Configure DNS server settings for {{ name }}
+    purestorage.flashblade.purefb_dns:
+      domain: "{{ dns.dns_domain }}"
+      nameservers: "{{ dns.dns_address }}"
+      fb_url: "{{ url }}"
+      api_token: "{{ api }}"

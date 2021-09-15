@@ -1,0 +1,11 @@
+uri_1: &ds_1 ldap://server1.example.com,ldap://server2.example.com
+uri_2: &ds_2 ldap://server3.example.com,ldap://server4.example.com
+uri_3: &ds_3 ldap://server5.example.com,ldap://server6.example.com
+array2_api_token: T-cbd0c419-1f88-493a-ae09-51e6687f6c25
+
+npc_ds_bind_password: password
+wpc_ds_bind_password: password
+
+community_tag_a: community_string
+community_tag_b: community_string
+

@@ -1,0 +1,15 @@
+- name: Gather Fb info
+  hosts: localhost
+  tasks:
+    - name: collect all FlashBlade Configuration info
+      purestorage.flashblade.purefb_info:
+        gather_subset:
+          - all
+        fb_url: 172.29.10.190
+        api_token: T-cbd0c419-1f88-493a-ae09-51e6687f6c25
+      register: blade_info
+
+    - name: Show all flashblade info
+      debug:
+        msg: "{{ blade_info }}"
+

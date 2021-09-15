@@ -1,0 +1,8 @@
+---
+
+- name: Set GUI idle timeout on {{ name }}
+  purestorage.flashblade.purefb_timeout:
+   timeout: "{{ gui_timeout }}"
+   state: present
+   fb_url: "{{ url }}"
+   api_token: "{{ api }}"

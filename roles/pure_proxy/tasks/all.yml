@@ -1,0 +1,8 @@
+---
+  - name: Configure proxy setting for {{ name }}
+    purestorage.flashblade.purefb_proxy:
+      state: "{{ proxy.state }}"
+      host: "{{ proxy.proxy_host }}"
+      port: "{{ proxy.proxy_port }}"
+      fb_url: "{{ url }}"
+      api_token: "{{ api }}"

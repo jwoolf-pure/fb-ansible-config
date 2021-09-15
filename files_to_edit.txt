@@ -1,0 +1,11 @@
+ansible.cfg - this file has the location of the vault file secret
+
+# The following two files are the main files that will be edited from time to time.
+group_vars/all/vault_file - is the location of he vault_file that can be encrypted.
+roles/copy-template/templates/vars_file_template.yml - this is the template file where most of the variables are located.
+
+# The following file is used to point variables to the correct site.  These files have to be included before the template copy can happen of the above file.
+roles/copy-template/files/npc_vars.yml
+roles/copy-template/files/wpc_vars.yml
+
+
