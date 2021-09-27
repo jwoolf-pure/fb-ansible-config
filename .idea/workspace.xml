@@ -20,26 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="898a55d3-a181-4724-a614-4b3a153a2dd9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/collections/ansible_collections/purestorage/flashblade/plugins/modules/purefb_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/collections/ansible_collections/purestorage/flashblade/plugins/modules/purefb_info.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doit.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/group_vars/all/npc/npc-pure-0012-p" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/group_vars/all/npc/npc-pure-004f-p" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/group_vars/all/wpc/wpc-pure-001b-p" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/group_vars/all/wpc/wpc-pure-0024-p" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/info.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/infra.yml" beforeDir="false" afterPath="$PROJECT_DIR$/infra.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/install.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ir.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ir_command.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/load_array_vars.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/local_modules/load_array_vars.py" beforeDir="false" afterPath="$PROJECT_DIR$/local_modules/load_array_vars.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/printfacts.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/roles/copy-template/files/npc_vars.yml" beforeDir="false" afterPath="$PROJECT_DIR$/roles/copy-template/files/npc_vars.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/roles/copy-template/files/wpc_vars.yml" beforeDir="false" afterPath="$PROJECT_DIR$/roles/copy-template/files/wpc_vars.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/roles/copy-template/templates/vars_file_template.yml" beforeDir="false" afterPath="$PROJECT_DIR$/roles/copy-template/templates/vars_file_template.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/roles/pure_cert/tasks/all.yml" beforeDir="false" afterPath="$PROJECT_DIR$/roles/pure_cert/tasks/all.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/roles/pure_network/tasks/all.yml" beforeDir="false" afterPath="$PROJECT_DIR$/roles/pure_network/tasks/all.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/roles/pure_syslog/tasks/all.yml" beforeDir="false" afterPath="$PROJECT_DIR$/roles/pure_syslog/tasks/all.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +63,7 @@
       <workItem from="1626195210526" duration="90670000" />
       <workItem from="1629328780759" duration="158000" />
       <workItem from="1630411225099" duration="56121000" />
-      <workItem from="1632141498349" duration="16611000" />
+      <workItem from="1632141498349" duration="17251000" />
     </task>
     <servers />
   </component>

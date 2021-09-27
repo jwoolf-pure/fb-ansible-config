@@ -84,13 +84,13 @@ npc_policies: &npc_policies_opts
       at: 11AM
       keep_for: 86400
       every: 86400
-      timezone: Asia/Shanghai
+      timezone: US/Pacific
     -
       name: test_policy4
       at: 11AM
       keep_for: 86400
       every: 86400
-      timezone: Asia/Shanghai
+      timezone: US/Pacific
 
 wpc_policies: &wpc_policies_opts
   all_policies:
@@ -99,13 +99,13 @@ wpc_policies: &wpc_policies_opts
       at: 11AM
       keep_for: 86400
       every: 86400
-      timezone: Asia/Shanghai
+      timezone: US/Pacific
     -
       name: test_policy4
       at: 11AM
       keep_for: 86400
       every: 86400
-      timezone: Asia/Shanghai
+      timezone: US/Pacific
 
 
 npc_syslog: &npc_syslog_opts
