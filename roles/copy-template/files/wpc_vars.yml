@@ -8,4 +8,6 @@
   ds_site: "*wpc_ds_opts"
   ds_roles_site: "*wpc_ds_roles_opts"
   ntp_site: "*wpc_ntp_opts"
+  policy_site: "*wpc_policies_opts"
+
 

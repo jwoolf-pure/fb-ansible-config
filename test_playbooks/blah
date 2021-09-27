@@ -1,0 +1,965 @@
+
+PLAY [Gather Fb info] **********************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [localhost]
+
+TASK [collect all FlashBlade Configuration info] *******************************
+ok: [localhost]
+
+TASK [Show all flashblade info] ************************************************
+ok: [localhost] => {
+    "msg": {
+        "changed": false,
+        "failed": false,
+        "purefb_info": {
+            "admins": {
+                "pureuser": {
+                    "api_token_timeout": null,
+                    "local": true,
+                    "public_key": null
+                }
+            },
+            "arrays": {
+                "GSE-FB02": {
+                    "encrypted": false,
+                    "id": "9bcf521e-67a5-42bd-b709-6fbc7f7815bb",
+                    "management_address": "GSE-FB02.PRLB.FLR.C360CLOUD.COM",
+                    "replication_addresses": [
+                        "192.168.29.231"
+                    ],
+                    "status": "connected",
+                    "version": "3.1.9"
+                }
+            },
+            "bucket_replication": {},
+            "buckets": {
+                "offload": {
+                    "account_name": "fa-offload-target",
+                    "created": 1627382186000,
+                    "data_reduction": null,
+                    "destroyed": false,
+                    "id": "f6b2b0a9-9414-8830-ae9d-636fd6feeda1",
+                    "object_count": 0,
+                    "snapshot_space": 0,
+                    "time_remaining": null,
+                    "total_physical_space": 0,
+                    "unique_space": 0,
+                    "versioning": "none",
+                    "virtual_space": 0
+                }
+            },
+            "capacity": {
+                "aggregate": {
+                    "data_reduction": 0.99789834,
+                    "snapshots": 14257614682,
+                    "total_physical": 3799919632105,
+                    "unique": 3785662017423,
+                    "virtual": 3777705911808
+                },
+                "file-system": {
+                    "data_reduction": 0.99789834,
+                    "snapshots": 14257614682,
+                    "total_physical": 3799919632105,
+                    "unique": 3785662017423,
+                    "virtual": 3777705911808
+                },
+                "object-store": {
+                    "data_reduction": 0.0,
+                    "snapshots": 0,
+                    "total_physical": 0,
+                    "unique": 0,
+                    "virtual": 3777705911808
+                },
+                "total": 65677494565820
+            },
+            "config": {
+                "alert_watchers": {
+                    "enabled": true,
+                    "id": "3d9ff2da-c6a5-d4a7-3599-13876f6e1d36",
+                    "minimum_notification_severity": "info",
+                    "name": "gse-mde-alerts-aaaad3bsacamd2v5nyeka6sgti@purestorage.slack.com"
+                },
+                "array_management": {
+                    "base_dn": "DC=prlb,DC=flr,DC=c360cloud,DC=com",
+                    "bind_password": "****",
+                    "bind_user": "CN=Administrator,CN=Users,DC=prlb,DC=flr,DC=c360cloud,DC=com",
+                    "ca_certificate": {
+                        "id": null,
+                        "name": null,
+                        "resource_type": null
+                    },
+                    "ca_certificate_group": {
+                        "id": null,
+                        "name": null,
+                        "resource_type": null
+                    },
+                    "enabled": true,
+                    "id": "ca359010-136e-8136-bdd9-d2cf49efb014",
+                    "management": {
+                        "user_login_attribute": null,
+                        "user_object_class": null
+                    },
+                    "name": "management",
+                    "nfs": {
+                        "nis_domains": [],
+                        "nis_servers": []
+                    },
+                    "services": [
+                        "management"
+                    ],
+                    "smb": {
+                        "join_ou": null
+                    },
+                    "uris": [
+                        "ldaps://ad01.prlb.flr.c360cloud.com"
+                    ]
+                },
+                "certificate_groups": {
+                    "id": "08bc5575-b6d6-e5f3-732c-ef24d9f87036",
+                    "name": "_default_replication_certs"
+                },
+                "directory_service_roles": {
+                    "array_admin": {
+                        "group": "Pure Array Admins",
+                        "group_base": "OU=Pure Storage"
+                    },
+                    "ops_admin": {
+                        "group": "Pure Operation Admins",
+                        "group_base": "OU=Pure Storage"
+                    },
+                    "readonly": {
+                        "group": "Pure RO Users",
+                        "group_base": "OU=Pure Storage"
+                    },
+                    "storage_admin": {
+                        "group": "Pure Storage Admins",
+                        "group_base": "OU=Pure Storage"
+                    }
+                },
+                "dns": {
+                    "domain": "prlb.flr.c360cloud.com",
+                    "name": "GSE-FB01",
+                    "nameservers": [
+                        "172.29.10.252",
+                        "172.31.50.19"
+                    ],
+                    "search": null
+                },
+                "nfs_directory_service": {
+                    "base_dn": null,
+                    "bind_password": null,
+                    "bind_user": null,
+                    "ca_certificate": {
+                        "id": null,
+                        "name": null,
+                        "resource_type": null
+                    },
+                    "ca_certificate_group": {
+                        "id": null,
+                        "name": null,
+                        "resource_type": null
+                    },
+                    "enabled": false,
+                    "id": "26009e69-6586-2d23-4c73-36ff8e0ead28",
+                    "management": {
+                        "user_login_attribute": null,
+                        "user_object_class": null
+                    },
+                    "name": "nfs",
+                    "nfs": {
+                        "nis_domains": [],
+                        "nis_servers": []
+                    },
+                    "services": [
+                        "nfs"
+                    ],
+                    "smb": {
+                        "join_ou": null
+                    },
+                    "uris": []
+                },
+                "ntp": [
+                    "time.purestorage.com",
+                    "time1.purestorage.com"
+                ],
+                "smb_directory_service": {
+                    "base_dn": "DC=prlb,DC=flr,DC=c360cloud,DC=com",
+                    "bind_password": "****",
+                    "bind_user": "CN=Administrator,CN=Users,DC=prlb,DC=flr,DC=c360cloud,DC=com",
+                    "ca_certificate": {
+                        "id": null,
+                        "name": null,
+                        "resource_type": null
+                    },
+                    "ca_certificate_group": {
+                        "id": null,
+                        "name": null,
+                        "resource_type": null
+                    },
+                    "enabled": true,
+                    "id": "89eb4a9f-44f6-5668-4a23-e596c2014459",
+                    "management": {
+                        "user_login_attribute": null,
+                        "user_object_class": null
+                    },
+                    "name": "smb",
+                    "nfs": {
+                        "nis_domains": [],
+                        "nis_servers": []
+                    },
+                    "services": [
+                        "smb"
+                    ],
+                    "smb": {
+                        "join_ou": null
+                    },
+                    "uris": [
+                        "ldaps://ad01.prlb.flr.c360cloud.com"
+                    ]
+                },
+                "smtp": {
+                    "name": "GSE-FB01",
+                    "relay_host": null,
+                    "sender_domain": "purestorage.com"
+                },
+                "snmp_agents": {
+                    "management": {
+                        "engine_id": "80009e22056a92f2b603f927e97234f3",
+                        "version": "v2c"
+                    }
+                },
+                "snmp_managers": {},
+                "ssl_certs": {
+                    "certificate": "-----BEGIN CERTIFICATE-----\nMIIFyjCCA7ICCQCE9DFpHeb8JzANBgkqhkiG9w0BAQsFADCBpjELMAkGA1UEBhMC\nVVMxDjAMBgNVBAgMBVRleGFzMQ8wDQYDVQQHDAZEYWxsYXMxFTATBgNVBAoMDFB1\ncmUgU3RvcmFnZTEeMBwGA1UECwwVUHJvZmVzc2lvbmFsIFNlcnZpY2VzMRgwFgYD\nVQQDDA9wdXJlc3RvcmFnZS5jb20xJTAjBgkqhkiG9w0BCQEWFmp3b29sZkBwdXJl\nc3RvcmFnZS5jb20wHhcNMjEwOTEwMTQwMDAyWhcNMjIwOTEwMTQwMDAyWjCBpjEL\nMAkGA1UEBhMCVVMxDjAMBgNVBAgMBVRleGFzMQ8wDQYDVQQHDAZEYWxsYXMxFTAT\nBgNVBAoMDFB1cmUgU3RvcmFnZTEeMBwGA1UECwwVUHJvZmVzc2lvbmFsIFNlcnZp\nY2VzMRgwFgYDVQQDDA9wdXJlc3RvcmFnZS5jb20xJTAjBgkqhkiG9w0BCQEWFmp3\nb29sZkBwdXJlc3RvcmFnZS5jb20wggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIK\nAoICAQDG+ruVj4W9/fvgG6zj3F2bk3ZvoyVUFfTMt9kR0MMFesneVjXwAC4Cbb09\nLz5tC0QOfn3DTKqL6W1IvO7r0PWScvzqdldeq9ffAwHZRGWqt4uLOkUnm6yHFVWx\nmbdXAqwZn932mNBqipPU8FOyWijKXzNDOVXS2aynYLt4jZn4HQTv3XPYu/wZSa4Z\nkHem35BfhB+njnvkPdzW6ToJIMFHfFZRnXDkSsFKQy/wJmamMmp8wcNHKsoZIvxj\nU5TOxvwILXDWNFH9Ok6bQ62VuSAx1Vyn/sdV/+qzpmpb3QevdTKJysZZf52mYOEY\npBvbDRIvzpQ3hAtGlWw6w8gS+S5Gw9kjfNWIfWO1TmK52TEK2BQr7PWtW9RnvMG0\nNq8qV0FbsRcOoTZUBi0HgDPpE4NrhtAdvU0/TzqIeWX4pqG1pCQU+ensKaEi2UGF\n1MWhg4k9yIx6ak6OKG/GbCGc7Hxqq2U7uf+Ql4irvAy0SzMVJNuKYpVHfRONQi1h\naTtKKGWnnlNY2dwBS+ivipYYabnpBmJCNRtLTjyffwI5Xb8vZxGsnzGceb50yT3i\nsq5dgpzWPgIJ6cRwUTF73htG9ExTNXUJXI/MkruSdg9VMxu2qNNdCSR64bpJLkLi\nnAIj611LN/iU8T04ohdhCBPGM77TW8yze/doPjPB2T2ain/AAwIDAQABMA0GCSqG\nSIb3DQEBCwUAA4ICAQBSykqRwg613BkczbbhMp66pKqKiTyruPVeAXM+KVjw0fot\naG5x3t8PrF653WM5nvTun5AKa8BAAU49LDMN465NSmYDpvaykTM1GJVFyklPHkEL\nV3fMMsPr+cJi/HT3ChV1qUsWAcFarqSA0nuW2o/8h385U2YVgI4tsIxPaGsDMaEM\nriR1TXsr3VRJndjbjR/XUUG+GM7iq6MjBIKduOz4Os5VVc0ozIlZbXW239r8HubL\nhXRiP6Eh4ePAnSusvvpjWiZuAnaEJh8skIhS5LdhlX4XZV/h22ny49SyTLhRDjwm\n2RIfQpXo5Tc2HHPoBpdAfLK/LNrOlMZwuC0l3L4BPmRB+nbHgwkTQCMAbKGcCAkV\nicRLJgjkq87CZeaL9SIHc4w8NXRE305Ha4/67UuxbUht2QjW+0ApUE21k1FbQhDr\nIJEUCeZvTPoXDV2ZKoH5R9CoBn0XjWzmToGUNcZBlEennAq2/7unnZ+JEMhZNVKF\nFoSvHcSwOt7ArCsM4Ffyihaol1vM2oIMWE/UtlNMLuOC9HWxZU44im7apHjw0tPc\nCLACmytx4aEBXEfG2D3oBA/Tbw8X3HDGfJ7jf7w2pEYTGJoIpj+A+p4ceasvgKBq\n8/biNz+qu7JfLfI4j4BFV246xmWAa6+ry1COippb4O4PWn23AZsYcMpPePnF2Q==\n-----END CERTIFICATE-----\n",
+                    "certificate_type": "array",
+                    "common_name": "purestorage.com",
+                    "country": "US",
+                    "email": "jwoolf@purestorage.com",
+                    "id": "be3e96c0-184c-2dfd-3dc6-fa709d412206",
+                    "intermediate_certificate": null,
+                    "issued_by": "purestorage.com",
+                    "issued_to": "purestorage.com",
+                    "key_size": 4096,
+                    "locality": "Dallas",
+                    "name": "global",
+                    "organization": "Pure Storage",
+                    "organizational_unit": "Professional Services",
+                    "passphrase": null,
+                    "private_key": null,
+                    "state": "Texas",
+                    "status": "imported",
+                    "valid_from": "1631282402000",
+                    "valid_to": "1662818402000"
+                }
+            },
+            "default": {
+                "blades": 15,
+                "bucket_replicas": 0,
+                "buckets": 1,
+                "certificate_groups": 1,
+                "certificates": 1,
+                "connected_arrays": 1,
+                "filesystems": 9,
+                "flashblade_name": "GSE-FB01",
+                "fs_replicas": 1,
+                "kerberos_keytabs": 0,
+                "object_store_accounts": 2,
+                "object_store_users": 1,
+                "policies": 2,
+                "purity_version": "3.1.9",
+                "remote_credentials": 0,
+                "snapshots": 18,
+                "targets": 0,
+                "total_capacity": 65677494565820
+            },
+            "file_replication": {
+                "CFG_SOURCE_FS": {
+                    "direction": "outbound",
+                    "lag": 687000,
+                    "policies": [
+                        "CFG_REP_POLICY"
+                    ],
+                    "recovery_point": 1632513470000,
+                    "remote_fs": "GSE-FB02:CFG_SOURCE_FS",
+                    "status": "idle"
+                }
+            },
+            "filesystems": {
+                "CFG_SOURCE_FS": {
+                    "destroyed": false,
+                    "fast_remove": false,
+                    "hard_limit": false,
+                    "multi_protocol": {
+                        "access_control_style": "shared",
+                        "safegaurd_acls": true
+                    },
+                    "nfs_rules": "*(rw,no_root_squash)",
+                    "promotion_status": "promoted",
+                    "provisioned": 107374182400,
+                    "requested_promotion_state": "promoted",
+                    "smb_mode": null,
+                    "snapshot_enabled": true,
+                    "source": {
+                        "is_local": true,
+                        "name": null
+                    },
+                    "writable": true
+                },
+                "CoE-Test-Sparse": {
+                    "destroyed": false,
+                    "fast_remove": false,
+                    "hard_limit": false,
+                    "multi_protocol": {
+                        "access_control_style": "shared",
+                        "safegaurd_acls": true
+                    },
+                    "nfs_rules": "*(rw,no_root_squash)",
+                    "promotion_status": "promoted",
+                    "provisioned": 161061273600,
+                    "requested_promotion_state": "promoted",
+                    "snapshot_enabled": true,
+                    "source": {
+                        "is_local": true,
+                        "name": null
+                    },
+                    "writable": true
+                },
+                "MDE-FB03-NFS-BACKUP-001": {
+                    "destroyed": false,
+                    "fast_remove": false,
+                    "hard_limit": false,
+                    "multi_protocol": {
+                        "access_control_style": "shared",
+                        "safegaurd_acls": true
+                    },
+                    "nfs_rules": "*(rw,no_root_squash)",
+                    "promotion_status": "promoted",
+                    "provisioned": 5497558138880,
+                    "requested_promotion_state": "promoted",
+                    "snapshot_enabled": false,
+                    "source": {
+                        "is_local": true,
+                        "name": null
+                    },
+                    "writable": true
+                },
+                "PARSEC_FB_NETAPP_NFS_TGT_MED01": {
+                    "destroyed": false,
+                    "fast_remove": false,
+                    "hard_limit": false,
+                    "multi_protocol": {
+                        "access_control_style": "shared",
+                        "safegaurd_acls": true
+                    },
+                    "nfs_rules": "*(rw,no_root_squash)",
+                    "promotion_status": "promoted",
+                    "provisioned": 2199023255552,
+                    "requested_promotion_state": "promoted",
+                    "snapshot_enabled": true,
+                    "source": {
+                        "is_local": true,
+                        "name": null
+                    },
+                    "writable": true
+                },
+                "PARSEC_FB_ONEFS_NFS_TGT_MED01": {
+                    "destroyed": false,
+                    "fast_remove": false,
+                    "hard_limit": false,
+                    "multi_protocol": {
+                        "access_control_style": "shared",
+                        "safegaurd_acls": true
+                    },
+                    "nfs_rules": "*(rw,no_root_squash)",
+                    "promotion_status": "promoted",
+                    "provisioned": 2199023255552,
+                    "requested_promotion_state": "promoted",
+                    "snapshot_enabled": true,
+                    "source": {
+                        "is_local": true,
+                        "name": null
+                    },
+                    "writable": true
+                },
+                "TEST01": {
+                    "destroyed": false,
+                    "fast_remove": false,
+                    "hard_limit": false,
+                    "multi_protocol": {
+                        "access_control_style": "shared",
+                        "safegaurd_acls": true
+                    },
+                    "promotion_status": "promoted",
+                    "provisioned": 2199023255552,
+                    "requested_promotion_state": "promoted",
+                    "smb_mode": null,
+                    "snapshot_enabled": false,
+                    "source": {
+                        "is_local": true,
+                        "name": null
+                    },
+                    "writable": true
+                },
+                "iometer": {
+                    "destroyed": false,
+                    "fast_remove": false,
+                    "hard_limit": false,
+                    "multi_protocol": {
+                        "access_control_style": "shared",
+                        "safegaurd_acls": true
+                    },
+                    "promotion_status": "promoted",
+                    "provisioned": 536870912000,
+                    "requested_promotion_state": "promoted",
+                    "smb_mode": null,
+                    "snapshot_enabled": false,
+                    "source": {
+                        "is_local": true,
+                        "name": null
+                    },
+                    "writable": true
+                },
+                "offload_target": {
+                    "destroyed": false,
+                    "fast_remove": false,
+                    "hard_limit": false,
+                    "multi_protocol": {
+                        "access_control_style": "shared",
+                        "safegaurd_acls": true
+                    },
+                    "nfs_rules": "*(rw,no_root_squash)",
+                    "promotion_status": "promoted",
+                    "provisioned": 1099511627776,
+                    "requested_promotion_state": "promoted",
+                    "snapshot_enabled": true,
+                    "source": {
+                        "is_local": true,
+                        "name": null
+                    },
+                    "writable": true
+                },
+                "software": {
+                    "destroyed": false,
+                    "fast_remove": false,
+                    "hard_limit": false,
+                    "multi_protocol": {
+                        "access_control_style": "shared",
+                        "safegaurd_acls": true
+                    },
+                    "nfs_rules": "*(rw,no_root_squash)",
+                    "promotion_status": "promoted",
+                    "provisioned": 2199023255552,
+                    "requested_promotion_state": "promoted",
+                    "snapshot_enabled": true,
+                    "source": {
+                        "is_local": true,
+                        "name": null
+                    },
+                    "writable": true
+                }
+            },
+            "lag": {
+                "uplink": {
+                    "lag_speed": 80000000000,
+                    "port_speed": 10000000000,
+                    "ports": [
+                        {
+                            "name": "CH1.FM1.ETH1.1"
+                        },
+                        {
+                            "name": "CH1.FM1.ETH1.2"
+                        },
+                        {
+                            "name": "CH1.FM1.ETH1.3"
+                        },
+                        {
+                            "name": "CH1.FM1.ETH1.4"
+                        },
+                        {
+                            "name": "CH1.FM1.ETH2.1"
+                        },
+                        {
+                            "name": "CH1.FM1.ETH2.2"
+                        },
+                        {
+                            "name": "CH1.FM1.ETH2.3"
+                        },
+                        {
+                            "name": "CH1.FM1.ETH2.4"
+                        },
+                        {
+                            "name": "CH1.FM1.ETH3.1"
+                        },
+                        {
+                            "name": "CH1.FM1.ETH3.2"
+                        },
+                        {
+                            "name": "CH1.FM1.ETH3.3"
+                        },
+                        {
+                            "name": "CH1.FM1.ETH3.4"
+                        },
+                        {
+                            "name": "CH1.FM1.ETH4.1"
+                        },
+                        {
+                            "name": "CH1.FM1.ETH4.2"
+                        },
+                        {
+                            "name": "CH1.FM1.ETH4.3"
+                        },
+                        {
+                            "name": "CH1.FM1.ETH4.4"
+                        },
+                        {
+                            "name": "CH1.FM2.ETH1.1"
+                        },
+                        {
+                            "name": "CH1.FM2.ETH1.2"
+                        },
+                        {
+                            "name": "CH1.FM2.ETH1.3"
+                        },
+                        {
+                            "name": "CH1.FM2.ETH1.4"
+                        },
+                        {
+                            "name": "CH1.FM2.ETH2.1"
+                        },
+                        {
+                            "name": "CH1.FM2.ETH2.2"
+                        },
+                        {
+                            "name": "CH1.FM2.ETH2.3"
+                        },
+                        {
+                            "name": "CH1.FM2.ETH2.4"
+                        },
+                        {
+                            "name": "CH1.FM2.ETH3.1"
+                        },
+                        {
+                            "name": "CH1.FM2.ETH3.2"
+                        },
+                        {
+                            "name": "CH1.FM2.ETH3.3"
+                        },
+                        {
+                            "name": "CH1.FM2.ETH3.4"
+                        },
+                        {
+                            "name": "CH1.FM2.ETH4.1"
+                        },
+                        {
+                            "name": "CH1.FM2.ETH4.2"
+                        },
+                        {
+                            "name": "CH1.FM2.ETH4.3"
+                        },
+                        {
+                            "name": "CH1.FM2.ETH4.4"
+                        }
+                    ],
+                    "status": "healthy"
+                }
+            },
+            "network": {
+                "FB-DataVIP01": {
+                    "address": "192.168.29.190",
+                    "gateway": "192.168.29.1",
+                    "mtu": 9000,
+                    "netmask": "255.255.255.0",
+                    "services": [
+                        "data"
+                    ],
+                    "type": "vip",
+                    "vlan": 777
+                },
+                "FB-ReplicationVIP03": {
+                    "address": "192.168.29.230",
+                    "gateway": "192.168.29.1",
+                    "mtu": 9000,
+                    "netmask": "255.255.255.0",
+                    "services": [
+                        "replication"
+                    ],
+                    "type": "vip",
+                    "vlan": 777
+                },
+                "fm1.admin0": {
+                    "address": "172.29.10.191",
+                    "gateway": "172.29.10.1",
+                    "mtu": 1500,
+                    "netmask": "255.255.255.0",
+                    "services": [
+                        "support"
+                    ],
+                    "type": "vip",
+                    "vlan": 555
+                },
+                "fm2.admin0": {
+                    "address": "172.29.10.192",
+                    "gateway": "172.29.10.1",
+                    "mtu": 1500,
+                    "netmask": "255.255.255.0",
+                    "services": [
+                        "support"
+                    ],
+                    "type": "vip",
+                    "vlan": 555
+                },
+                "vir0": {
+                    "address": "172.29.10.190",
+                    "gateway": "172.29.10.1",
+                    "mtu": 1500,
+                    "netmask": "255.255.255.0",
+                    "services": [
+                        "management"
+                    ],
+                    "type": "vip",
+                    "vlan": 555
+                }
+            },
+            "performance": {
+                "aggregate": {
+                    "bytes_per_op": 0,
+                    "bytes_per_read": 0,
+                    "bytes_per_write": 0,
+                    "read_bytes_per_sec": 0,
+                    "reads_per_sec": 0,
+                    "usec_per_other_op": 0,
+                    "usec_per_read_op": 0,
+                    "usec_per_write_op": 0,
+                    "write_bytes_per_sec": 0,
+                    "writes_per_sec": 0
+                },
+                "file_replication": {
+                    "received_bytes_per_sec": 50,
+                    "transmitted_bytes_per_sec": 54
+                },
+                "http": {
+                    "bytes_per_op": 0,
+                    "bytes_per_read": 0,
+                    "bytes_per_write": 0,
+                    "read_bytes_per_sec": 0,
+                    "reads_per_sec": 0,
+                    "usec_per_other_op": 0,
+                    "usec_per_read_op": 0,
+                    "usec_per_write_op": 0,
+                    "write_bytes_per_sec": 0,
+                    "writes_per_sec": 0
+                },
+                "nfs": {
+                    "bytes_per_op": 0,
+                    "bytes_per_read": 0,
+                    "bytes_per_write": 0,
+                    "read_bytes_per_sec": 0,
+                    "reads_per_sec": 0,
+                    "usec_per_other_op": 179,
+                    "usec_per_read_op": 0,
+                    "usec_per_write_op": 0,
+                    "write_bytes_per_sec": 0,
+                    "writes_per_sec": 0
+                },
+                "object_replication": {
+                    "received_bytes_per_sec": 0,
+                    "transmitted_bytes_per_sec": 0
+                },
+                "s3": {
+                    "bytes_per_op": 0,
+                    "bytes_per_read": 0,
+                    "bytes_per_write": 0,
+                    "read_bytes_per_sec": 0,
+                    "reads_per_sec": 0,
+                    "usec_per_other_op": 0,
+                    "usec_per_read_op": 0,
+                    "usec_per_write_op": 0,
+                    "write_bytes_per_sec": 0,
+                    "writes_per_sec": 0
+                }
+            },
+            "policies": {
+                "CFG_REP_POLICY": {
+                    "enabled": true,
+                    "rules": {
+                        "at": null,
+                        "every": 900000,
+                        "keep_for": 14400000,
+                        "time_zone": null
+                    }
+                },
+                "test-policy": {
+                    "enabled": true,
+                    "rules": {
+                        "at": 39600000,
+                        "every": 86400000,
+                        "keep_for": 604800000,
+                        "time_zone": "US/Eastern"
+                    }
+                }
+            },
+            "remote_credentials": {},
+            "snap_transfers": {
+                "CFG_SOURCE_FS.2021_09_24_15_57.2": {
+                    "completed": 1632513474259,
+                    "data_transferred": 1916928,
+                    "direction": "outbound",
+                    "progress": 1.0,
+                    "remote": "GSE-FB02",
+                    "remote_snapshot": "CFG_SOURCE_FS.replica.2021_09_24_15_57.2",
+                    "started": 1632513470563,
+                    "status": "completed"
+                }
+            },
+            "snapshots": {
+                "CFG_SOURCE_FS.2021_09_24_12_12": {
+                    "destroyed": false,
+                    "owner": "CFG_SOURCE_FS",
+                    "owner_destroyed": false,
+                    "source": "CFG_SOURCE_FS",
+                    "source_destroyed": false,
+                    "source_display_name": "CFG_SOURCE_FS",
+                    "source_is_local": true,
+                    "source_location": "GSE-FB01",
+                    "suffix": "2021_09_24_12_12"
+                },
+                "CFG_SOURCE_FS.2021_09_24_12_27": {
+                    "destroyed": false,
+                    "owner": "CFG_SOURCE_FS",
+                    "owner_destroyed": false,
+                    "source": "CFG_SOURCE_FS",
+                    "source_destroyed": false,
+                    "source_display_name": "CFG_SOURCE_FS",
+                    "source_is_local": true,
+                    "source_location": "GSE-FB01",
+                    "suffix": "2021_09_24_12_27"
+                },
+                "CFG_SOURCE_FS.2021_09_24_12_42": {
+                    "destroyed": false,
+                    "owner": "CFG_SOURCE_FS",
+                    "owner_destroyed": false,
+                    "source": "CFG_SOURCE_FS",
+                    "source_destroyed": false,
+                    "source_display_name": "CFG_SOURCE_FS",
+                    "source_is_local": true,
+                    "source_location": "GSE-FB01",
+                    "suffix": "2021_09_24_12_42"
+                },
+                "CFG_SOURCE_FS.2021_09_24_12_57": {
+                    "destroyed": false,
+                    "owner": "CFG_SOURCE_FS",
+                    "owner_destroyed": false,
+                    "source": "CFG_SOURCE_FS",
+                    "source_destroyed": false,
+                    "source_display_name": "CFG_SOURCE_FS",
+                    "source_is_local": true,
+                    "source_location": "GSE-FB01",
+                    "suffix": "2021_09_24_12_57"
+                },
+                "CFG_SOURCE_FS.2021_09_24_13_12": {
+                    "destroyed": false,
+                    "owner": "CFG_SOURCE_FS",
+                    "owner_destroyed": false,
+                    "source": "CFG_SOURCE_FS",
+                    "source_destroyed": false,
+                    "source_display_name": "CFG_SOURCE_FS",
+                    "source_is_local": true,
+                    "source_location": "GSE-FB01",
+                    "suffix": "2021_09_24_13_12"
+                },
+                "CFG_SOURCE_FS.2021_09_24_13_27": {
+                    "destroyed": false,
+                    "owner": "CFG_SOURCE_FS",
+                    "owner_destroyed": false,
+                    "source": "CFG_SOURCE_FS",
+                    "source_destroyed": false,
+                    "source_display_name": "CFG_SOURCE_FS",
+                    "source_is_local": true,
+                    "source_location": "GSE-FB01",
+                    "suffix": "2021_09_24_13_27"
+                },
+                "CFG_SOURCE_FS.2021_09_24_13_42": {
+                    "destroyed": false,
+                    "owner": "CFG_SOURCE_FS",
+                    "owner_destroyed": false,
+                    "source": "CFG_SOURCE_FS",
+                    "source_destroyed": false,
+                    "source_display_name": "CFG_SOURCE_FS",
+                    "source_is_local": true,
+                    "source_location": "GSE-FB01",
+                    "suffix": "2021_09_24_13_42"
+                },
+                "CFG_SOURCE_FS.2021_09_24_13_57": {
+                    "destroyed": false,
+                    "owner": "CFG_SOURCE_FS",
+                    "owner_destroyed": false,
+                    "source": "CFG_SOURCE_FS",
+                    "source_destroyed": false,
+                    "source_display_name": "CFG_SOURCE_FS",
+                    "source_is_local": true,
+                    "source_location": "GSE-FB01",
+                    "suffix": "2021_09_24_13_57"
+                },
+                "CFG_SOURCE_FS.2021_09_24_14_12": {
+                    "destroyed": false,
+                    "owner": "CFG_SOURCE_FS",
+                    "owner_destroyed": false,
+                    "source": "CFG_SOURCE_FS",
+                    "source_destroyed": false,
+                    "source_display_name": "CFG_SOURCE_FS",
+                    "source_is_local": true,
+                    "source_location": "GSE-FB01",
+                    "suffix": "2021_09_24_14_12"
+                },
+                "CFG_SOURCE_FS.2021_09_24_14_27": {
+                    "destroyed": false,
+                    "owner": "CFG_SOURCE_FS",
+                    "owner_destroyed": false,
+                    "source": "CFG_SOURCE_FS",
+                    "source_destroyed": false,
+                    "source_display_name": "CFG_SOURCE_FS",
+                    "source_is_local": true,
+                    "source_location": "GSE-FB01",
+                    "suffix": "2021_09_24_14_27"
+                },
+                "CFG_SOURCE_FS.2021_09_24_14_42": {
+                    "destroyed": false,
+                    "owner": "CFG_SOURCE_FS",
+                    "owner_destroyed": false,
+                    "source": "CFG_SOURCE_FS",
+                    "source_destroyed": false,
+                    "source_display_name": "CFG_SOURCE_FS",
+                    "source_is_local": true,
+                    "source_location": "GSE-FB01",
+                    "suffix": "2021_09_24_14_42"
+                },
+                "CFG_SOURCE_FS.2021_09_24_14_57": {
+                    "destroyed": false,
+                    "owner": "CFG_SOURCE_FS",
+                    "owner_destroyed": false,
+                    "source": "CFG_SOURCE_FS",
+                    "source_destroyed": false,
+                    "source_display_name": "CFG_SOURCE_FS",
+                    "source_is_local": true,
+                    "source_location": "GSE-FB01",
+                    "suffix": "2021_09_24_14_57"
+                },
+                "CFG_SOURCE_FS.2021_09_24_15_12": {
+                    "destroyed": false,
+                    "owner": "CFG_SOURCE_FS",
+                    "owner_destroyed": false,
+                    "source": "CFG_SOURCE_FS",
+                    "source_destroyed": false,
+                    "source_display_name": "CFG_SOURCE_FS",
+                    "source_is_local": true,
+                    "source_location": "GSE-FB01",
+                    "suffix": "2021_09_24_15_12"
+                },
+                "CFG_SOURCE_FS.2021_09_24_15_27": {
+                    "destroyed": false,
+                    "owner": "CFG_SOURCE_FS",
+                    "owner_destroyed": false,
+                    "source": "CFG_SOURCE_FS",
+                    "source_destroyed": false,
+                    "source_display_name": "CFG_SOURCE_FS",
+                    "source_is_local": true,
+                    "source_location": "GSE-FB01",
+                    "suffix": "2021_09_24_15_27"
+                },
+                "CFG_SOURCE_FS.2021_09_24_15_42": {
+                    "destroyed": false,
+                    "owner": "CFG_SOURCE_FS",
+                    "owner_destroyed": false,
+                    "source": "CFG_SOURCE_FS",
+                    "source_destroyed": false,
+                    "source_display_name": "CFG_SOURCE_FS",
+                    "source_is_local": true,
+                    "source_location": "GSE-FB01",
+                    "suffix": "2021_09_24_15_42"
+                },
+                "CFG_SOURCE_FS.2021_09_24_15_57": {
+                    "destroyed": false,
+                    "owner": "CFG_SOURCE_FS",
+                    "owner_destroyed": false,
+                    "source": "CFG_SOURCE_FS",
+                    "source_destroyed": false,
+                    "source_display_name": "CFG_SOURCE_FS",
+                    "source_is_local": true,
+                    "source_location": "GSE-FB01",
+                    "suffix": "2021_09_24_15_57"
+                },
+                "CFG_SOURCE_FS.2021_09_24_15_57.2": {
+                    "destroyed": false,
+                    "owner": "CFG_SOURCE_FS",
+                    "owner_destroyed": false,
+                    "source": "CFG_SOURCE_FS",
+                    "source_destroyed": false,
+                    "source_display_name": "CFG_SOURCE_FS",
+                    "source_is_local": true,
+                    "source_location": "GSE-FB01",
+                    "suffix": "2021_09_24_15_57.2"
+                },
+                "MDE-FB03-NFS-BACKUP-001.TestKompriseSnapshot": {
+                    "destroyed": false,
+                    "owner": "MDE-FB03-NFS-BACKUP-001",
+                    "owner_destroyed": false,
+                    "source": "MDE-FB03-NFS-BACKUP-001",
+                    "source_destroyed": false,
+                    "source_display_name": "MDE-FB03-NFS-BACKUP-001",
+                    "source_is_local": true,
+                    "source_location": "GSE-FB01",
+                    "suffix": "TestKompriseSnapshot"
+                }
+            },
+            "subnet": {
+                "Management": {
+                    "gateway": "172.29.10.1",
+                    "interfaces": [
+                        {
+                            "name": "fm1.admin0"
+                        },
+                        {
+                            "name": "fm2.admin0"
+                        },
+                        {
+                            "name": "vir0"
+                        }
+                    ],
+                    "lag": null,
+                    "mtu": 1500,
+                    "prefix": "172.29.10.0/24",
+                    "services": [
+                        "management",
+                        "support"
+                    ],
+                    "vlan": 555
+                },
+                "Vlan-777": {
+                    "gateway": "192.168.29.1",
+                    "interfaces": [
+                        {
+                            "name": "FB-DataVIP01"
+                        },
+                        {
+                            "name": "FB-ReplicationVIP03"
+                        }
+                    ],
+                    "lag": "uplink",
+                    "mtu": 9000,
+                    "prefix": "192.168.29.0/24",
+                    "services": [
+                        "data",
+                        "replication"
+                    ],
+                    "vlan": 777
+                }
+            },
+            "targets": {}
+        }
+    }
+}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

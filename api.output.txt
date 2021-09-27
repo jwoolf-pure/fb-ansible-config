@@ -1,0 +1,2 @@
+Name      Type   API Token                               Created                  Expires
+pureuser  local  T-d5064a2c-45ed-4c70-9a3d-7cc6dc991e83  2021-09-27 14:01:18 EDT  -

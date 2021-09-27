@@ -16,7 +16,7 @@
 
   - name: Change or Modify Array Global Certificate
     purestorage.flashblade.purefb_certs:
-      name: "{{ cert_name }}"
+      name: "global"
       contents: "{{ cert_file_txt['content'] | b64decode }}"
       private_key: "{{ cert_key_file_txt['content'] | b64decode }}"
       # passphrase: <create a tag here for passphrase if needed>

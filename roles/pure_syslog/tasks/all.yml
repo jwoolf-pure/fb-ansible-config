@@ -26,6 +26,7 @@
       name: "{{ syslog.name }}"
       address: "{{ syslog.address }}"
       protocol: "{{ syslog.protocol }}"
+      port: "{{ syslog.port }}"
       fb_url: "{{ url }}"
       api_token: "{{ api }}"
     when: blade_syslog_servers| selectattr('name','equalto', syslog.name) | list | count == 0

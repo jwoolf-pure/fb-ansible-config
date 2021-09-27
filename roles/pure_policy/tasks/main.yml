@@ -1,0 +1,9 @@
+---
+  - name: Pure FlashBlade Settings Configuration
+    include_tasks:
+      file: all.yml
+    vars:
+      name: "{{ item.name }}"
+      url: "{{ item.fb_url }}"
+      api: "{{ item.api_token }}"
+    loop: "{{ target_arrays }}"

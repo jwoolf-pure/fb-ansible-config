@@ -897,7 +897,8 @@ def generate_policies_dict(blade):
         policies_info[policy]["enabled"] = policies.items[policycnt].enabled
         if policies.items[policycnt].rules:
             policies_info[policy]["rules"] = (
-                policies.items[policycnt].rules[0].to_dict()
+                [rule.to_dict() for rule in policies.items[policycnt].rules]
+                #policies.items[policycnt].rules[0].to_dict()
             )
     return policies_info
 

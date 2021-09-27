@@ -4,7 +4,14 @@
   gather_facts: no
   roles:
       - role: copy-template
-  tags: [ 'all', 'template', 'banner', 'gui', 'smis', 'dns', 'dsrole', 'ds', 'ntp', 'syslog', 'snmp', 'smtp', 'phonehome', 'proxy', 'alert_email', 'cert' , 'network']
+  tags: [ 'all', 'template', 'banner', 'gui', 'smis', 'dns', 'dsrole', 'ds', 'ntp', 'syslog', 'snmp', 'smtp', 'phonehome', 'proxy', 'alert_email', 'cert' , 'network', 'policy']
+
+- name: Set up policies
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - role: pure_policy
+  tags: ['policy', 'all']
 
 - name: Set The Data Network up
   hosts: localhost
@@ -113,5 +120,5 @@
   gather_facts: no
   roles:
     - role: cleanup-files
-  tags: [ 'all', 'template', 'banner', 'gui', 'smis', 'dns', 'dsrole', 'ds', 'ntp', 'syslog', 'snmp', 'smtp', 'phonehome', 'proxy', 'alert_email', 'cert']
+  tags: [ 'all', 'template', 'banner', 'gui', 'smis', 'dns', 'dsrole', 'ds', 'ntp', 'syslog', 'snmp', 'smtp', 'phonehome', 'proxy', 'alert_email', 'cert', 'policy']
 

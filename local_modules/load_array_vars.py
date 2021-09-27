@@ -52,7 +52,7 @@ def main():
         flashblade = False
 
     dir = os.getcwd()
-    newdir = dir + '/group_vars/all/' + site
+    newdir = dir + '/host_variables/' + site
     files = os.listdir(newdir)
 
     output = []

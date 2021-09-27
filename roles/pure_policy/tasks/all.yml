@@ -1,0 +1,18 @@
+---
+- name: collect all FlashBlade Configuration info
+  purestorage.flashblade.purefb_policy:
+    name: "{{ policy.name }}"
+    at: "{{ policy.at }}"
+    keep_for: "{{ policy.keep_for }}"
+    every: "{{ policy.every }}"
+    timezone: "{{ policy.timezone }}"
+    fb_url: "{{ url }}"
+    api_token: "{{ api }}"
+  loop: "{{ policies.all_policies }}"
+  loop_control:
+    loop_var: policy
+
+#- name: Show all flashblade info
+#  debug:
+#    msg: "{{ policies }}"
+

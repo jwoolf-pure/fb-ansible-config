@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="898a55d3-a181-4724-a614-4b3a153a2dd9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/collections/ansible_collections/purestorage/flashblade/plugins/modules/purefb_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/collections/ansible_collections/purestorage/flashblade/plugins/modules/purefb_info.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doit.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/group_vars/all/npc/npc-pure-0012-p" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/group_vars/all/npc/npc-pure-004f-p" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/group_vars/all/wpc/wpc-pure-001b-p" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/group_vars/all/wpc/wpc-pure-0024-p" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/info.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infra.yml" beforeDir="false" afterPath="$PROJECT_DIR$/infra.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/install.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ir.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ir_command.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load_array_vars.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/local_modules/load_array_vars.py" beforeDir="false" afterPath="$PROJECT_DIR$/local_modules/load_array_vars.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/printfacts.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/copy-template/files/npc_vars.yml" beforeDir="false" afterPath="$PROJECT_DIR$/roles/copy-template/files/npc_vars.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/copy-template/files/wpc_vars.yml" beforeDir="false" afterPath="$PROJECT_DIR$/roles/copy-template/files/wpc_vars.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/copy-template/templates/vars_file_template.yml" beforeDir="false" afterPath="$PROJECT_DIR$/roles/copy-template/templates/vars_file_template.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/pure_cert/tasks/all.yml" beforeDir="false" afterPath="$PROJECT_DIR$/roles/pure_cert/tasks/all.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/pure_network/tasks/all.yml" beforeDir="false" afterPath="$PROJECT_DIR$/roles/pure_network/tasks/all.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/pure_syslog/tasks/all.yml" beforeDir="false" afterPath="$PROJECT_DIR$/roles/pure_syslog/tasks/all.yml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1vGjDiq9GmE4t0x8BgvCtaJQt4V" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="898a55d3-a181-4724-a614-4b3a153a2dd9" name="Default Changelist" comment="" />
+      <created>1626195202053</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1626195202053</updated>
+      <workItem from="1626195210526" duration="90670000" />
+      <workItem from="1629328780759" duration="158000" />
+      <workItem from="1630411225099" duration="56121000" />
+      <workItem from="1632141498349" duration="16611000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="600" y="278" key="#Inspections" timestamp="1626308442937">
+      <screen x="0" y="23" width="1792" height="1024" />
+    </state>
+    <state x="600" y="278" key="#Inspections/0.23.1792.1024@0.23.1792.1024" timestamp="1626308442937" />
+    <state x="378" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1627662107385">
+      <screen x="0" y="23" width="1792" height="1026" />
+    </state>
+    <state x="378" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1792.1026@0.23.1792.1026" timestamp="1627662107385" />
+    <state x="378" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1792.1028@0.23.1792.1028" timestamp="1627593020779" />
+  </component>
+</project>

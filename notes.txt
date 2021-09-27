@@ -1,0 +1,13 @@
+move site files up one directory from all       --- done ---
+move site files into host_variables
+
+get rid of 'global' entry for certs             --- done ---
+
+
+data-network variables                          -- done ---
+
+name: Data
+interace: data1
+
+
+add syslog port                                 -- done ---

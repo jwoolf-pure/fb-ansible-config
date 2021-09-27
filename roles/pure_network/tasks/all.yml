@@ -1,8 +1,8 @@
 ---
 
-  - name: Create new network subnet named {{ data_network.name }}
+  - name: Create new network subnet named Data
     purefb_subnet:
-      name: "{{ data_network.name }}"
+      name: "Data"
       prefix: "{{ data_network.prefix }}"
       gateway: "{{ data_network.gateway }}"
       mtu: "{{ data_network.mtu }}"
@@ -14,7 +14,7 @@
 
   - name: Create new network interfaces
     purefb_network:
-      name: "{{ interface.name }}"
+      name: "data1"
       address: "{{ interface.address }}"
       state: present
       fb_url: "{{ url }}"

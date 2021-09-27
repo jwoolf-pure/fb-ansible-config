@@ -8,4 +8,4 @@
   ds_site: "*npc_ds_opts"
   ds_roles_site: "*npc_ds_roles_opts"
   ntp_site: "*npc_ntp_opts"
-
+  policy_site: "*npc_policies_opts"

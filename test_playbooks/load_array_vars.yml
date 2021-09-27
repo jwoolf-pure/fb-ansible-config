@@ -4,8 +4,8 @@
     - name: Load Array variables
       load_array_vars:
         site: npc
-        #flashblade: npc-pure-004f-p
-        flashblade: False
+        flashblade: npc-pure-004f-p
+        #flashblade: False
       register: array_vars
 
     - name: Show all flashblade info
