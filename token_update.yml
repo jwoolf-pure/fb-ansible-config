@@ -1,0 +1,22 @@
+---
+- name: Read site variables to vars file and include it
+  hosts: localhost
+  gather_facts: no
+  roles:
+      - role: copy-template
+  tags: [ 'all', 'api_token' ]
+
+- name: Pure Storage FlashBlade Update API Keys
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - role: pure_api_token
+  tags: [ 'all','api_token' ]
+
+- name: Cleanup template copies.
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - role: cleanup-files
+  tags: [ 'all', 'api_token' ]
+

@@ -8,17 +8,26 @@ install the following modules:
 
 edit the ansible.cfg file add the following line
 library = ./local_modules  -- this just changed to use the host_variables directory for sites/flashblades
+    local_modules also changed again.  I modified at least two of the modules.
 
-copy contents of local_modules into your project directory.
+*** copy contents of local_modules into your project directory.  Change was made to add ability to only use either site_env OR site_blade and no longer requires both variables.
+
+Also added the new module to handle the api tokens.
 
 copy in the following roles:
-    copy-template
+    *** copy-template - This role changed again
     pure_cert
     pure_network
     pure_ir_passwd
     pure_ir_execline
     pure_policy
-    pure_syslog - changed to add port setting.
+    *** pure_syslog - changed to add port setting.
+    *** pure_api_token
 
 
 The infra.yml file will have changed.
+*** Copy in token_update.yml
+
+Adopt the changes in the roles/copy-template/templates/vars_file_template.yml for the policy role.
+
+

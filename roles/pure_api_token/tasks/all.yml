@@ -1,0 +1,14 @@
+---
+- name: Create/Delete API Keys
+  manage_api_token:
+    array_name: "{{ name }}"
+    operation: "{{ operation | default('add') }}"
+    force_update: "{{ force_update | default(False) }}"
+    names: "{{ names }}"
+    fb_url: "{{ url }}"
+    api_token: "{{ api }}"
+  register: key_data
+   
+- name: Debug stuff
+  debug:
+    msg: "{{ key_data }}"

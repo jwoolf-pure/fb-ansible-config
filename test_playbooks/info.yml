@@ -6,7 +6,7 @@
         gather_subset:
           - all
         fb_url: 172.29.10.190
-        api_token: T-cbd0c419-1f88-493a-ae09-51e6687f6c25
+        api_token: T-d5064a2c-45ed-4c70-9a3d-7cc6dc991e83
       register: blade_info
 
     - name: Show all flashblade info

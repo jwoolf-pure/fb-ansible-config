@@ -42,9 +42,11 @@ class LocalVault:
 def main():
 
     module = AnsibleModule(argument_spec={
-        'site': {'type': 'str', 'required': True},
-        'flashblade': {'type': 'str', 'required': False}
-    })
+                               'site': {'type': 'str', 'required': False},
+                               'flashblade': {'type': 'str', 'required': False}
+                                },
+                            required_one_of=['site', 'flashblade']
+    )
     site = module.params['site']
     flashblade = module.params['flashblade']
 
@@ -52,33 +54,67 @@ def main():
         flashblade = False
 
     dir = os.getcwd()
-    newdir = dir + '/host_variables/' + site
-    files = os.listdir(newdir)
+    if site and site.lower() == 'false':
+        site = False
+
+    if site:
+        site_dir = dir + '/host_variables/' + site
+        files = os.listdir(site_dir)
 
     output = []
     if flashblade:
-        if not os.path.isfile(newdir + '/' + flashblade):
-            module.fail_json(msg="No file " + newdir + '/' + flashblade )
+        base_dir = dir + '/host_variables/'
+        all_blades = {}
+        dir = os.listdir(base_dir)
+        for each in dir:
+            if os.path.isdir(base_dir + each):
+                dir_to_search = base_dir + each + '/'
+                all_files = os.listdir(dir_to_search)
 
-        vaultClass = LocalVault(newdir + '/' + flashblade, module)
+                for file in all_files:
+                    if os.path.isfile(dir_to_search + file):
+                        all_blades[file] = {
+                            'file': dir_to_search + file,
+                            'site': each
+                        }
+        if flashblade not in all_blades.keys():
+            module.fail_json(msg="No file for " + flashblade)
+
+
+        vaultClass = LocalVault(all_blades[flashblade]['file'], module)
         if vaultClass.file_data:
-            module.exit_json(success=True, changed=False, target_arrays=[vaultClass.file_data])
+            module.exit_json(
+                success=True,
+                changed=False,
+                target_arrays=[vaultClass.file_data],
+                site_env=all_blades[flashblade]['site']
+            )
 
-        with open(newdir + '/' + flashblade) as f:
+        with open(all_blades[flashblade]['file']) as f:
             loaded = yaml.load(f, Loader=FullLoader)
             output.append(loaded)
-            module.exit_json(success=True, changed=False, target_arrays=output)
+            module.exit_json(
+                success=True,
+                changed=False,
+                target_arrays=output,
+                site_env=all_blades[flashblade]['site']
+            )
 
     for file in files:
-        vaultClass = LocalVault(newdir + '/' + file, module)
+        vaultClass = LocalVault(site_dir + '/' + file, module)
         if vaultClass.file_data:
             output.append(vaultClass.file_data)
         else:
-            with open(newdir + '/' + file) as f:
+            with open(site_dir + '/' + file) as f:
                 loaded = yaml.load(f, Loader=FullLoader)
                 output.append(loaded)
 
-    module.exit_json(success=True, changed=True, target_arrays=output, flashblade=flashblade)
+    module.exit_json(success=True,
+                     changed=True,
+                     target_arrays=output,
+                     flashblade=flashblade,
+                     site_env=site
+                     )
 
 if __name__ == '__main__':
     main()

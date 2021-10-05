@@ -2,12 +2,13 @@
 
 - name: Load Target Flashblade Info into Global Variables
   load_array_vars:
-    site: "{{ site_env }}"
+    site: "{{ site_env | default(False) }}"
     flashblade: "{{ site_blade | default(False) }}"
   register: array_vars
 
 - set_fact:
     target_arrays: "{{ array_vars['target_arrays'] }}"
+    site_env: "{{ array_vars['site_env'] }}"
 
 # Read the appropriate variables file for site_env variable passed
 - include_vars: ./roles/copy-template/files/npc_vars.yml

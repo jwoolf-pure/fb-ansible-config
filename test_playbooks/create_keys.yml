@@ -1,0 +1,20 @@
+---
+- name: Create API keys
+  hosts: localhost
+  tasks:
+    - name: Create/Delete API Keys
+      create_api_key:
+        array_name: BlahBlah
+        operation: add
+        force_update: True
+        names:
+          - jwoolf
+          - testinguser1
+          - testinguser2
+        fb_url: 172.29.10.190
+        api_token: T-b749601e-da1e-4c12-860f-c5f259a55838
+      register: key_data
+   
+    - name: Debug stuff
+      debug:
+        msg: "{{ key_data }}"
