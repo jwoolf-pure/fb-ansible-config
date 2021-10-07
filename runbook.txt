@@ -1,3 +1,13 @@
+
+# Run all standard plays except for ir and api key type plays for the 'wpc' site.
+ansible-playbook ./infra.yml -e site=wpc
+
+# Run syslog and banner plays for the 'wpc' site.
+ansible-playbook ./infra.yml -e site=wpc --tags syslog,banner
+
+# Run syslog plays for the 'npc-pure-0012-p' flashblade.
+ansible-playbook ./infra.yml -e blade=npc-pure-0012-p --tags syslog
+
 # Run a command as the IR user.
 ansible-playbook ./ir_control.yml -e "{ 'command': 'ls -l /etc', 'site': 'npc', 'password': 'pureuser'}" --tags ir_execline
 
