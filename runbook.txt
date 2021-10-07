@@ -1,23 +1,23 @@
 # Run a command as the IR user.
-ansible-playbook ./ir_control.yml -e "{ 'command': 'ls -l /etc', 'site_env': 'npc', 'password': 'pureuser'}" --tags ir_execline
+ansible-playbook ./ir_control.yml -e "{ 'command': 'ls -l /etc', 'site': 'npc', 'password': 'pureuser'}" --tags ir_execline
 
 # Change the IR password for the npc site.
-ansible-playbook ./ir_control.yml -e "{ 'old_password': 'Blahblah', 'new_password': 'newblahblah', site_env': 'npc'}" --tags ir_execline
+ansible-playbook ./ir_control.yml -e "{ 'old_password': 'Blahblah', 'new_password': 'newblahblah', site': 'npc'}" --tags ir_execline
 
 # Force update of keys for jwoolf, testinguser1 and testinguser2
 # If you do not set force_update to True then if a user already has a key, the module will fail.
-ansible-playbook ./token_update.yml -e site_env=npc -e "{ 'names': ['jwoolf', 'testinguser1', 'testinguser2'], 'force_update': True}"
+ansible-playbook ./token_update.yml -e site=npc -e "{ 'names': ['jwoolf', 'testinguser1', 'testinguser2'], 'force_update': True}"
 
 # Force delete of keys for jwoolf, testinguser1 and testinguser2
-ansible-playbook ./token_update.yml -e site_env=npc -e "{ 'names': ['jwoolf', 'testinguser1', 'testinguser2'], 'operation': 'delete'}"
+ansible-playbook ./token_update.yml -e site=npc -e "{ 'names': ['jwoolf', 'testinguser1', 'testinguser2'], 'operation': 'delete'}"
 
 # Run api key forced update only on one FlashBlade
-ansible-playbook ./token_update.yml -e site_blade=wpc-pure-001b-p -e "{ 'names': ['jwoolf', 'testinguser1', 'testinguser2'], 'force_update': True}"
+ansible-playbook ./token_update.yml -e blade=wpc-pure-001b-p -e "{ 'names': ['jwoolf', 'testinguser1', 'testinguser2'], 'force_update': True}"
 
 # Run the syslog role only on one FlashBlade
-ansible-playbook ./infra.yml -e site_blade=wpc-pure-001b-p --tags syslog
+ansible-playbook ./infra.yml -e blade=wpc-pure-001b-p --tags syslog
 
 # Run the syslog role on the 'wpc' site.
-ansible-playbook ./infra.yml -e site_env=wpc --tags syslog
+ansible-playbook ./infra.yml -e site=wpc --tags syslog
 
-ansible-playbook ./infra.yml -e site_blade=wpc-pure-001b-p --tags network
+ansible-playbook ./infra.yml -e blade=wpc-pure-001b-p --tags network

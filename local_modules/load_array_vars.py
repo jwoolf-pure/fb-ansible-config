@@ -87,7 +87,7 @@ def main():
                 success=True,
                 changed=False,
                 target_arrays=[vaultClass.file_data],
-                site_env=all_blades[flashblade]['site']
+                site=all_blades[flashblade]['site']
             )
 
         with open(all_blades[flashblade]['file']) as f:
@@ -97,7 +97,7 @@ def main():
                 success=True,
                 changed=False,
                 target_arrays=output,
-                site_env=all_blades[flashblade]['site']
+                site=all_blades[flashblade]['site']
             )
 
     for file in files:
@@ -113,7 +113,7 @@ def main():
                      changed=True,
                      target_arrays=output,
                      flashblade=flashblade,
-                     site_env=site
+                     site=site
                      )
 
 if __name__ == '__main__':

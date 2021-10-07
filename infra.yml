@@ -3,7 +3,7 @@
   hosts: localhost
   gather_facts: no
   roles:
-      - role: copy-template
+      - role: generate_variables
   tags: [ 'all', 'template', 'banner', 'gui', 'smis', 'dns', 'dsrole', 'ds', 'ntp', 'syslog', 'snmp', 'smtp', 'phonehome', 'proxy', 'alert_email', 'cert' , 'network', 'policy']
 
 - name: Set up policies
@@ -115,10 +115,10 @@
     - role: pure_alert_email
   tags: [ 'all','alert_email' ]
 
-- name: Cleanup template copies.
-  hosts: localhost
-  gather_facts: no
-  roles:
-    - role: cleanup-files
-  tags: [ 'all', 'template', 'banner', 'gui', 'smis', 'dns', 'dsrole', 'ds', 'ntp', 'syslog', 'snmp', 'smtp', 'phonehome', 'proxy', 'alert_email', 'cert', 'policy']
-
+  #- name: Cleanup template copies.
+  #hosts: localhost
+  #gather_facts: no
+  #roles:
+  #  - role: cleanup-files
+  #tags: [ 'all', 'template', 'banner', 'gui', 'smis', 'dns', 'dsrole', 'ds', 'ntp', 'syslog', 'snmp', 'smtp', 'phonehome', 'proxy', 'alert_email', 'cert', 'policy']
+  #

@@ -7,4 +7,6 @@
       url: "{{ item.fb_url }}"
       api: "{{ item.api_token }}"
       ds_uri: "{{ item.ds_uri }}"
+      cert_file: "{{item.cert_file}}"
+      cert_key_file: "{{item.cert_key_file}}"
     loop: "{{ target_arrays }}"

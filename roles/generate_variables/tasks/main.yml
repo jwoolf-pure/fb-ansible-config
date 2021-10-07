@@ -1,0 +1,18 @@
+---
+
+- name: Load Target Flashblade Info into Global Variables
+  load_array_vars:
+    site: "{{ site | default(False) }}"
+    flashblade: "{{ blade | default(False) }}"
+  register: array_vars
+
+- set_fact:
+    target_arrays: "{{ array_vars['target_arrays'] }}"
+    site: "{{ array_vars['site'] }}"
+
+# Read the appropriate variables file for site
+- include_vars: ./group_vars/npc/npc_vars.yml
+  when: site == 'npc'
+
+- include_vars: ./group_vars/wpc/wpc_vars.yml
+  when: site == 'wpc'

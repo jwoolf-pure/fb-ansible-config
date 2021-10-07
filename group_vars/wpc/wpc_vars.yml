@@ -1,0 +1,101 @@
+---
+
+email_notify_user: jwoolf@purestorage.com
+mail_relay_host: localhost
+
+login_banner: "***W A R N I N G***\n\nTHIS IS A PRIVATE SYSTEM.\n"
+
+gui_timeout: 180
+
+ntp: 
+  ntp_servers:
+    - time.purestorage.com
+    - time1.purestorage.com
+
+dns: 
+  dns_address:
+    - 172.29.10.252
+    - 172.29.10.253
+  dns_domain: prlb.flr.c360cloud.com
+
+proxy: 
+  state: present
+  proxy_host: proxy.example.com
+  proxy_port: 8080
+
+snmp:  
+  snmp_managers:
+    -
+      snmp_manager: manager4
+      snmp_host: snmp4.example.com
+      snmp_community: public
+      version: v2c
+    -
+      snmp_manager: manager5
+      snmp_host: snmp5.example.com
+      snmp_community: public
+      version: v2c
+
+alert: 
+  alert_emails:
+    - gse-mde-alerts-aaaad3bsacamd2v5nyeka6sgti@purestorage.slack.com
+    - rkemp@purestorage.com
+    - foo@bar.com
+
+policies: 
+  all_policies:
+    -
+      name: test_policy3
+      at: 11AM
+      keep_for: 86400
+      every: 86400
+      timezone: US/Pacific
+    -
+      name: test_policy4
+      at: 11AM
+      keep_for: 86400
+      every: 86400
+      timezone: US/Pacific
+
+slog: 
+  syslog_servers:
+    -
+      name: blahblah4
+      address: 10.10.10.50
+      protocol: udp
+      port: 999
+    -
+      name: blahblah5
+      address: 10.10.10.51
+      protocol: udp
+      port: 999
+
+smtp: 
+  sender_domain: purestorage.com
+  relay_host: ''
+
+ds: 
+  ds_uri: "{{ uri_2 }}"
+  base_dn: purestorage.com
+  bind_user: binduser
+  bind_password: foobar
+
+all_ds_roles:
+  ds_roles:
+    array_admin:
+      role: array_admin
+      group_base: "OU=Pure Storage"
+      group: Pure Array Admins
+    ops_admin:
+      role: ops_admin
+      group_base: "OU=Pure Storage"
+      group: Pure Operation Admins
+    storage_admin:
+      role: storage_admin
+      group_base: "OU=Pure Storage"
+      group: Pure Storage Admins
+    readonly:
+      role: readonly
+      group_base: "OU=Pure Storage"
+      group: Pure RO Users
+

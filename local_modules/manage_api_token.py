@@ -87,7 +87,8 @@ class ApiTokenGenerator:
                     res = self.fb.admins.update_admins(names=[user], admin=localAdmin).to_dict()
 
                 except:
-                    self.module.fail_json(msg='Updated failed.  Unknown Error.')
+                    #self.module.fail_json(msg='Updated failed.  Unknown Error.')
+                    self.module.fail_json(msg=res)
             else:
                 self.module.exit_json(changed=False, msg='Update failed.  force_update not enabled. Exiting.')
         try:

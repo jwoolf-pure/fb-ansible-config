@@ -3,7 +3,7 @@
   hosts: localhost
   gather_facts: no
   roles:
-      - role: copy-template
+      - role: generate_variables
   tags: [ 'all', 'api_token' ]
 
 - name: Pure Storage FlashBlade Update API Keys
@@ -12,11 +12,4 @@
   roles:
     - role: pure_api_token
   tags: [ 'all','api_token' ]
-
-- name: Cleanup template copies.
-  hosts: localhost
-  gather_facts: no
-  roles:
-    - role: cleanup-files
-  tags: [ 'all', 'api_token' ]
 
