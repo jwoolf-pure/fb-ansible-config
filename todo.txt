@@ -1,33 +1,49 @@
 
 install the following modules:
+    purity-fb
+    py-pure-client
     ansible-vault
     netaddr
     paramiko  -- paramiko may already be installed but check to be sure.
     pytz
 
 
-edit the ansible.cfg file add the following line
-library = ./local_modules  -- this just changed to use the host_variables directory for sites/flashblades
-    local_modules also changed again.  I modified at least two of the modules.
+Copy in the project.
 
-*** copy contents of local_modules into your project directory.  Change was made to add ability to only use either site_env OR site_blade and no longer requires both variables.
+In the group_vars directory,  create a directory with the same name as each of your site names.
 
-Also added the new module to handle the api tokens.
+You can use either group_vars/npc/npc_vars.yml or group_vars/wpc/wpc_vars.yml file as a template for
+creating variables files for your sites.  Create the variables files.
 
-copy in the following roles:
-    *** copy-template - This role changed again
-    pure_cert
-    pure_network
-    pure_ir_passwd
-    pure_ir_execline
-    pure_policy
-    *** pure_syslog - changed to add port setting.
-    *** pure_api_token
+You'll have to do a one time edit on the roles/generate_variables role.  In the roles/generate_variables/main.yml file there are the following lines:
+
+ - include_vars: ./group_vars/npc/npc_vars.yml
+   when: site == 'npc'
+
+You'll need to add an entry for each site that points to the variable files you just created in the previous steps.
 
 
-The infra.yml file will have changed.
-*** Copy in token_update.yml
+In the ./host_variables directory,  you'll also need to create a directory for each site name.  In each directory you'll need to create a file for each flashblade with the name of the flashblade being the name of the file.  Here is an example file:
 
-Adopt the changes in the roles/copy-template/templates/vars_file_template.yml for the policy role.
+---
 
+ name: npc-pure-0012-p
+ fb_url: 172.29.10.190
+ api_token: T-b749601e-da1e-4c12-860f-c5f259a55838
+ cert_file: /Users/jwoolf/PycharmProjects/Apple-Ansible/certs/cert.pem
+ cert_key_file: /Users/jwoolf/PycharmProjects/Apple-Ansible/certs/key.pem
+ data_network:
+   prefix: 10.150.0.0/16
+   gateway: 10.150.1.1
+   mtu: 9000
+   vlan: 2200
+   interfaces:
+     -
+       address: 10.150.10.10
+
+
+
+in the ansible.cfg file, you may want to point the setting for the vault password outside of the project directory.
+
+you can use "ansible-vault encrypt host_variables/<site>/flashblade_name" to encrypt it.
 
