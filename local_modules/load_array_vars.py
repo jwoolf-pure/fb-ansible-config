@@ -2,6 +2,7 @@
 from ansible.module_utils.basic import *
 from ansible_vault import Vault
 import yaml
+import os
 from yaml import FullLoader
 import configparser
 
@@ -33,17 +34,26 @@ class LocalVault:
         passwd = passwd.rstrip('\n')
         vault = Vault(passwd)
         try:
-            data = vault.load(open(vault_file).read())
-            self.file_data = data
-            try:
-                test_token = self.file_data['api_token']
-                new_token = vault.load(test_token)
-                self.file_data.update({'api_token': new_token})
-            except:
-                module.fail_json(msg='can not resolve api_token: ' + vault_file)
-
+            if os.path.isfile(vault_file):
+                data = vault.load(open(vault_file).read())
+                self.file_data = data
+            else:
+                module.fail_json(msg="no file named: " + vault_file)
         except:
-            module.fail_json(msg='can not resolve file or malformed file yaml.: ' + vault_file)
+            if os.path.isfile(vault_file):
+                try:
+                    with open(vault_file, 'r') as f:
+                        self.file_data = yaml.load(f, FullLoader)
+                        test_token = self.file_data['api_token']
+                        new_token = vault.load(test_token)
+                        self.file_data.update({'api_token': new_token})
+                except:
+                    module.fail_json(msg="Could not figure out how to decrypt api_token")
+
+
+            else:
+                module.fail_json(msg="can not locate: " + vault_file)
+
 
 
 
