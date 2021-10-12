@@ -28,14 +28,23 @@ class LocalVault:
         vault_password_file = config['defaults'].get('vault_password_file', False)
         if not vault_password_file:
             module.fail_json(msg="No vault_password_file entry in ansible.cfg")
+
+        passwd = open(vault_password_file).read()
+        passwd = passwd.rstrip('\n')
+        vault = Vault(passwd)
         try:
-            passwd = open(vault_password_file).read()
-            passwd = passwd.rstrip('\n')
-            vault = Vault(passwd)
             data = vault.load(open(vault_file).read())
             self.file_data = data
+            try:
+                test_token = self.file_data['api_token']
+                new_token = vault.load(test_token)
+                self.file_data.update({'api_token': new_token})
+            except:
+                module.fail_json(msg='can not resolve file: ' + vault_file)
+
         except:
-            self.file_data = False
+            module.fail_json(msg='can not resolve file: ' + vault_file)
+
 
 
 
@@ -87,16 +96,6 @@ def main():
                 success=True,
                 changed=False,
                 target_arrays=[vaultClass.file_data],
-                site=all_blades[flashblade]['site']
-            )
-
-        with open(all_blades[flashblade]['file']) as f:
-            loaded = yaml.load(f, Loader=FullLoader)
-            output.append(loaded)
-            module.exit_json(
-                success=True,
-                changed=False,
-                target_arrays=output,
                 site=all_blades[flashblade]['site']
             )
 
