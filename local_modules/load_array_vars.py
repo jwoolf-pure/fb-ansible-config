@@ -40,10 +40,10 @@ class LocalVault:
                 new_token = vault.load(test_token)
                 self.file_data.update({'api_token': new_token})
             except:
-                module.fail_json(msg='can not resolve file: ' + vault_file)
+                module.fail_json(msg='can not resolve api_token: ' + vault_file)
 
         except:
-            module.fail_json(msg='can not resolve file: ' + vault_file)
+            module.fail_json(msg='can not resolve file or malformed file yaml.: ' + vault_file)
 
 
 
