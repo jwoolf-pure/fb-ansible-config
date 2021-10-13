@@ -10,8 +10,11 @@ class FlashBladeConnect:
         self.new_password = new_password
         self.client = SSHClient()
         self.client.load_system_host_keys()
-        self.client.connect(flashblade, password=password, username='ir',
+        try:
+            self.client.connect(flashblade, password=password, username='ir',
                             allow_agent=False, look_for_keys=False)
+        except:
+            module.fail_json(msg="Did not authenticate to server " + flashblade)
 
     def change_password(self):
         try:
