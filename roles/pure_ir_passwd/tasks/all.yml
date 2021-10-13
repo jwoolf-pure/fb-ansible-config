@@ -1,6 +1,6 @@
 ---
 
- - name: Change the password for {{ name }}
+ - name: Change the password on {{ name }}
    change_ir_passwd:
      old_password: "{{ old_password }}"
      new_password: "{{ new_password }}"

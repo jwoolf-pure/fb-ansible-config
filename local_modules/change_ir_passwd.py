@@ -4,15 +4,29 @@ from paramiko import SSHClient, SSHException
 
 class FlashBladeConnect:
 
-    def __init__(self, flashblade, password):
+    def __init__(self, flashblade, password, new_password, module):
+        self.module = module
+        self.flashblade = flashblade
+        self.new_password = new_password
         self.client = SSHClient()
         self.client.load_system_host_keys()
         self.client.connect(flashblade, password=password, username='ir',
                             allow_agent=False, look_for_keys=False)
 
-    def exec_command(self, command):
+    def change_password(self):
         try:
-            stdin, stdout, stderr = self.client.exec_command(command)
+            stdin, stdout, stderr = self.client.exec_command('sudo chpass_helper.py -x1-2 ir')
+            stdin.write(self.new_password + '\n')
+            stdin.write(self.new_password + '\n')
+            stdin.flush()
+
+            exit_status = stdout.channel.recv_exit_status()
+
+            if exit_status == 0:
+                self.module.exit_json(success=True, changed=True, flashblade=self.flashblade, content="exited successfullly.")
+            else:
+                self.module.fail_json(msg="did not exit successfully.")
+
         except SSHException:
             pass
 
@@ -31,19 +45,9 @@ def main():
     fb_url = module.params['fb_url']
 
 
-    flashBlade = FlashBladeConnect(fb_url, old_password)
-    stdin, stdout, stderr = flashBlade.exec_command('sudo passwd ir')
+    flashBlade = FlashBladeConnect(fb_url, old_password, new_password, module)
+    flashBlade.change_password()
 
-    stdin.write(new_password + '\n')
-    stdin.write(new_password + '\n')
-    stdin.flush()
-    stdout.channel.set_combine_stderr(True)
-
-    output = stdout.read().decode()
-    if 'updated successfully' in output:
-        module.exit_json(success=True, changed=True,  flashblade=fb_url, content=output)
-    else:
-        module.fail_json(msg=output, flashblade=fb_url)
 
 if __name__ == '__main__':
     main()

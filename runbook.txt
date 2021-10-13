@@ -12,7 +12,7 @@ ansible-playbook ./infra.yml -e blade=npc-pure-0012-p --tags syslog
 ansible-playbook ./ir_control.yml -e "{ 'command': 'ls -l /etc', 'site': 'npc', 'password': 'pureuser'}" --tags ir_execline
 
 # Change the IR password for the npc site.
-ansible-playbook ./ir_control.yml -e "{ 'old_password': 'Blahblah', 'new_password': 'newblahblah', site': 'npc'}" --tags ir_execline
+ansible-playbook ./ir_control.yml -e "{ 'old_password': 'pureusertest', 'new_password': 'pureuser', 'site': 'npc'}" --tags ir_passwd
 
 # Force update of keys for jwoolf, testinguser1 and testinguser2
 # If you do not set force_update to True then if a user already has a key, the module will fail.
