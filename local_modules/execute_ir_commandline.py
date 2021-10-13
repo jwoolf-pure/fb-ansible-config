@@ -7,7 +7,8 @@ class FlashBladeConnect:
     def __init__(self, flashblade, password):
         self.client = SSHClient()
         self.client.load_system_host_keys()
-        self.client.connect(flashblade, password=password, username='ir')
+        self.client.connect(flashblade, password=password, username='ir',
+                            allow_agent=False, look_for_keys=False)
 
     def exec_command(self, command):
         try:
@@ -37,10 +38,11 @@ def main():
         result_stdout = stdout.read().decode()
         result_stderr = stderr.read().decode()
     except:
-        module.fail_json(msg="Faild to login/execute command")
+        module.fail_json(msg="Failed to login/execute command")
 
     output = stdout.read().decode()
     module.exit_json(success=True, changed=True,  flashblade=fb_url, stdout=result_stdout, stderr=result_stderr)
+
 
 if __name__ == '__main__':
     main()
