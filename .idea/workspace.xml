@@ -21,7 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="898a55d3-a181-4724-a614-4b3a153a2dd9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local_modules/execute_ir_commandline.py" beforeDir="false" afterPath="$PROJECT_DIR$/local_modules/execute_ir_commandline.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local_modules/change_ir_passwd.py" beforeDir="false" afterPath="$PROJECT_DIR$/local_modules/change_ir_passwd.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +64,7 @@
       <workItem from="1626195210526" duration="90670000" />
       <workItem from="1629328780759" duration="158000" />
       <workItem from="1630411225099" duration="56121000" />
-      <workItem from="1632141498349" duration="65087000" />
+      <workItem from="1632141498349" duration="65556000" />
     </task>
     <servers />
   </component>

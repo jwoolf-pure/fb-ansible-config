@@ -7,7 +7,8 @@ class FlashBladeConnect:
     def __init__(self, flashblade, password):
         self.client = SSHClient()
         self.client.load_system_host_keys()
-        self.client.connect(flashblade, password=password, username='ir')
+        self.client.connect(flashblade, password=password, username='ir',
+                            allow_agent=False, look_for_keys=False)
 
     def exec_command(self, command):
         try:
