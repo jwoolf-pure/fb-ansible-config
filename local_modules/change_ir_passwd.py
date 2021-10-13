@@ -31,7 +31,7 @@ class FlashBladeConnect:
                 self.module.fail_json(msg="did not exit successfully.")
 
         except SSHException:
-            pass
+            self.module.fail_json(msg="did not exit successfully.")
 
         return stdin, stdout, stderr
 
