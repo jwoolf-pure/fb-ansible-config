@@ -16,7 +16,6 @@
       state: absent
       fb_url: "{{ url }}"
       api_token: "{{ api }}"
-    #when: sys_item.name not in alert.alert_emails
     when: alert.alert_emails | selectattr('address', 'equalto', sys_item.name) | list | count == 0
     loop: "{{ system_email_addrs }}"
     loop_control:
