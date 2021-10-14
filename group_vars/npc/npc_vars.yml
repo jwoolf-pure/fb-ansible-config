@@ -43,8 +43,15 @@ snmp:
 
 alert:
   alert_emails:
-    - gse-mde-alerts-aaaad3bsacamd2v5nyeka6sgti@purestorage.slack.com
-    - rkemp@purestorage.com
+    -
+      address: gse-mde-alerts-aaaad3bsacamd2v5nyeka6sgti@purestorage.slack.com
+      severity: info
+    -
+      address: rkemp@purestorage.com
+      severity: info
+    -
+      address: testing@example.com
+      severity: critical
 
 policies:
   all_policies:

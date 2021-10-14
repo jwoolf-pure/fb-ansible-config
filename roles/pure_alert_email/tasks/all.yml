@@ -16,19 +16,21 @@
       state: absent
       fb_url: "{{ url }}"
       api_token: "{{ api }}"
-    when: sys_item.name not in alert.alert_emails
+    #when: sys_item.name not in alert.alert_emails
+    when: alert.alert_emails | selectattr('address', 'equalto', sys_item.name) | list | count == 0
     loop: "{{ system_email_addrs }}"
     loop_control:
       loop_var: sys_item
 
   - name: Add Alert Email entries for {{ name }}
     purestorage.flashblade.purefb_alert:
-      address: "{{ email_item }}"
+      address: "{{ email_item.address }}"
+      severity: "{{ email_item.severity }}"
       enabled: true
       state: present
       fb_url: "{{ url }}"
       api_token: "{{ api }}"
-    when: system_email_addrs | selectattr('name','equalto', email_item) | list | count == 0
+    when: system_email_addrs | selectattr('name','equalto', email_item.address) | list | count == 0
     loop: "{{ alert.alert_emails }}"
     loop_control:
       loop_var: email_item

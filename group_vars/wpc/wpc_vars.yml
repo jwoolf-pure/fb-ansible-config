@@ -36,11 +36,17 @@ snmp:
       snmp_community: public
       version: v2c
 
-alert: 
+alert:
   alert_emails:
-    - gse-mde-alerts-aaaad3bsacamd2v5nyeka6sgti@purestorage.slack.com
-    - rkemp@purestorage.com
-    - foo@bar.com
+    -
+      address: gse-mde-alerts-aaaad3bsacamd2v5nyeka6sgti@purestorage.slack.com
+      severity: info
+    -
+      address: rkemp@purestorage.com
+      severity: info
+    -
+      address: testing@example.com
+      severity: critical
 
 policies: 
   all_policies:
