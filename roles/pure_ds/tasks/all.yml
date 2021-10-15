@@ -14,7 +14,7 @@
     debug:
       msg: "{{ array_facts }}"
 
-  # Delete Current Directory Service config if any of the current settings do not match standard
+  # Delete Current Directory Service config if base_dn or bind_user of the current settings do not match standard
   - name: Clear Directory Services configuration for {{ url }}
     purefb_ds:
       state: absent
