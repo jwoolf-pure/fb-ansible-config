@@ -25,6 +25,7 @@
   - name: Configure Directory Services for {{ name }}
     purestorage.flashblade.purefb_ds:
       enable: true
+      dstype: "{{ ds.dstype }}"
       uri: "{{ ds.ds_uri }}"
       base_dn: "{{ ds.base_dn }}"
       bind_user: "{{ ds.bind_user }}"

@@ -59,12 +59,12 @@
   tags: [ 'all','dsrole' ]
 
 
-#- name: Pure Storage FlashBlade Settings for Directory Services
-#  hosts: localhost
-#  gather_facts: no
-#  roles:
-#    - role: pure_ds
-#  tags: [ 'all','ds' ]
+- name: Pure Storage FlashBlade Settings for Directory Services
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - role: pure_ds
+  tags: [ 'all','ds' ]
 
 - name: Pure Storage FlashBlade Settings for NTP
   hosts: localhost

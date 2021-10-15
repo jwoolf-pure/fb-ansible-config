@@ -80,11 +80,12 @@ smtp:
   sender_domain: purestorage.com
   relay_host: ''
 
-ds: 
-  ds_uri: "{{ uri_2 }}"
-  base_dn: purestorage.com
-  bind_user: binduser
-  bind_password: foobar
+ds:
+  dstype: management
+  ds_uri: ldaps://ad01.prlb.flr.c360cloud.com
+  base_dn: DC=prlb,DC=flr,DC=c360cloud,DC=com
+  bind_user: CN=Administrator,CN=Users,DC=prlb,DC=flr,DC=c360cloud,DC=com
+  bind_password: yourpassword
 
 all_ds_roles:
   ds_roles:
