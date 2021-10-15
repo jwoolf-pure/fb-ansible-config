@@ -20,8 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="898a55d3-a181-4724-a614-4b3a153a2dd9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group_vars/npc/npc_vars.yml" beforeDir="false" afterPath="$PROJECT_DIR$/group_vars/npc/npc_vars.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/roles/pure_ds/tasks/all.yml" beforeDir="false" afterPath="$PROJECT_DIR$/roles/pure_ds/tasks/all.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +63,7 @@
       <workItem from="1626195210526" duration="90670000" />
       <workItem from="1629328780759" duration="158000" />
       <workItem from="1630411225099" duration="56121000" />
-      <workItem from="1632141498349" duration="75155000" />
+      <workItem from="1632141498349" duration="75322000" />
     </task>
     <servers />
   </component>

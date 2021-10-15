@@ -22,7 +22,6 @@
       api_token: "{{ api }}"
     when: (array_base_dn != ds.base_dn) or
           (array_bind_user != ds.bind_user)
-#          (array_uri != ds.ds_uri)
 
   # Create or recreate Directory Service config
   - name: Configure Directory Services for {{ name }}
