@@ -1,0 +1,464 @@
+
+PLAY [Read site variables to vars file and include it] *************************
+
+TASK [generate_variables : Load Target Flashblade Info into Global Variables] ***
+changed: [localhost]
+
+TASK [generate_variables : set_fact] *******************************************
+ok: [localhost]
+
+TASK [generate_variables : include_vars] ***************************************
+ok: [localhost]
+
+TASK [generate_variables : include_vars] ***************************************
+skipping: [localhost]
+
+PLAY [Set up policies] *********************************************************
+
+PLAY [Set The Data Network up] *************************************************
+
+PLAY [Pure Storage FlashBlade Settings for Certificates] ***********************
+
+PLAY [Pure Storage FlashBlade Settings for DNS] ********************************
+
+PLAY [Pure Storage FlashBlade Settings for login banner] ***********************
+
+PLAY [Pure Storage FlashBlade Settings for Directory Service Roles] ************
+
+PLAY [Pure Storage FlashBlade Settings for Directory Services] *****************
+
+TASK [pure_ds : Pure FlashBlade Settings Configuration for Directory Services] ***
+included: /Users/jwoolf/PycharmProjects/Apple-Ansible/roles/pure_ds/tasks/all.yml for localhost => (item={'name': 'npc-pure-004f-p', 'fb_url': '172.29.10.190', 'api_token': 'T-b749601e-da1e-4c12-860f-c5f259a55838', 'cert_file': '/Users/jwoolf/PycharmProjects/Apple-Ansible/certs/cert.pem', 'cert_key_file': '/Users/jwoolf/PycharmProjects/Apple-Ansible/certs/key.pem', 'data_network': {'prefix': '10.150.0.0/16', 'gateway': '10.150.1.1', 'mtu': 9000, 'vlan': 2200, 'interfaces': [{'address': '10.150.10.10'}]}})
+included: /Users/jwoolf/PycharmProjects/Apple-Ansible/roles/pure_ds/tasks/all.yml for localhost => (item={'name': 'npc-pure-0012-p', 'fb_url': '172.29.10.190', 'api_token': 'T-b749601e-da1e-4c12-860f-c5f259a55838', 'cert_file': '/Users/jwoolf/PycharmProjects/Apple-Ansible/certs/cert.pem', 'cert_key_file': '/Users/jwoolf/PycharmProjects/Apple-Ansible/certs/key.pem', 'data_network': {'prefix': '10.150.0.0/16', 'gateway': '10.150.1.1', 'mtu': 9000, 'vlan': 2200, 'interfaces': [{'address': '10.150.10.10'}]}})
+
+TASK [pure_ds : Get facts for 172.29.10.190] ***********************************
+ok: [localhost]
+
+TASK [pure_ds : Debug output] **************************************************
+ok: [localhost] => {
+    "msg": {
+        "changed": false,
+        "failed": false,
+        "purefb_info": {
+            "config": {
+                "alert_watchers": [
+                    {
+                        "enabled": true,
+                        "id": "3d9ff2da-c6a5-d4a7-3599-13876f6e1d36",
+                        "minimum_notification_severity": "info",
+                        "name": "gse-mde-alerts-aaaad3bsacamd2v5nyeka6sgti@purestorage.slack.com"
+                    },
+                    {
+                        "enabled": true,
+                        "id": "7f4a0f15-516b-385f-dd52-b37db9d9d517",
+                        "minimum_notification_severity": "info",
+                        "name": "rkemp@purestorage.com"
+                    }
+                ],
+                "array_management": {
+                    "base_dn": "DC=prlb,DC=flr,DC=c360cloud,DC=com",
+                    "bind_password": "****",
+                    "bind_user": "CN=Administrator,CN=Users,DC=prlb,DC=flr,DC=c360cloud,DC=com",
+                    "ca_certificate": {
+                        "id": null,
+                        "name": null,
+                        "resource_type": null
+                    },
+                    "ca_certificate_group": {
+                        "id": null,
+                        "name": null,
+                        "resource_type": null
+                    },
+                    "enabled": true,
+                    "id": "ca359010-136e-8136-bdd9-d2cf49efb014",
+                    "management": {
+                        "user_login_attribute": null,
+                        "user_object_class": null
+                    },
+                    "name": "management",
+                    "nfs": {
+                        "nis_domains": [],
+                        "nis_servers": []
+                    },
+                    "services": [
+                        "management"
+                    ],
+                    "smb": {
+                        "join_ou": null
+                    },
+                    "uris": [
+                        "ldaps://ad01.prlb.flr.c360cloud.com"
+                    ]
+                },
+                "banner": {
+                    "login_banner": "\n"
+                },
+                "certificate_groups": {
+                    "id": "08bc5575-b6d6-e5f3-732c-ef24d9f87036",
+                    "name": "_default_replication_certs"
+                },
+                "directory_service_roles": {
+                    "array_admin": {
+                        "group": "Pure Array Admins",
+                        "group_base": "OU=Pure Storage"
+                    },
+                    "ops_admin": {
+                        "group": "Pure Operation Admins",
+                        "group_base": "OU=Pure Storage"
+                    },
+                    "readonly": {
+                        "group": "Pure RO Users",
+                        "group_base": "OU=Pure Storage"
+                    },
+                    "storage_admin": {
+                        "group": "Pure Storage Admins",
+                        "group_base": "OU=Pure Storage"
+                    }
+                },
+                "dns": {
+                    "domain": "prlb.flr.c360cloud.com",
+                    "name": "GSE-FB01",
+                    "nameservers": [
+                        "172.29.10.252",
+                        "172.29.10.253"
+                    ],
+                    "search": null
+                },
+                "nfs_directory_service": {
+                    "base_dn": null,
+                    "bind_password": null,
+                    "bind_user": null,
+                    "ca_certificate": {
+                        "id": null,
+                        "name": null,
+                        "resource_type": null
+                    },
+                    "ca_certificate_group": {
+                        "id": null,
+                        "name": null,
+                        "resource_type": null
+                    },
+                    "enabled": false,
+                    "id": "26009e69-6586-2d23-4c73-36ff8e0ead28",
+                    "management": {
+                        "user_login_attribute": null,
+                        "user_object_class": null
+                    },
+                    "name": "nfs",
+                    "nfs": {
+                        "nis_domains": [],
+                        "nis_servers": []
+                    },
+                    "services": [
+                        "nfs"
+                    ],
+                    "smb": {
+                        "join_ou": null
+                    },
+                    "uris": []
+                },
+                "ntp": [
+                    "time.purestorage.com",
+                    "time1.purestorage.com"
+                ],
+                "smb_directory_service": {
+                    "base_dn": "DC=prlb,DC=flr,DC=c360cloud,DC=com",
+                    "bind_password": "****",
+                    "bind_user": "CN=Administrator,CN=Users,DC=prlb,DC=flr,DC=c360cloud,DC=com",
+                    "ca_certificate": {
+                        "id": null,
+                        "name": null,
+                        "resource_type": null
+                    },
+                    "ca_certificate_group": {
+                        "id": null,
+                        "name": null,
+                        "resource_type": null
+                    },
+                    "enabled": true,
+                    "id": "89eb4a9f-44f6-5668-4a23-e596c2014459",
+                    "management": {
+                        "user_login_attribute": null,
+                        "user_object_class": null
+                    },
+                    "name": "smb",
+                    "nfs": {
+                        "nis_domains": [],
+                        "nis_servers": []
+                    },
+                    "services": [
+                        "smb"
+                    ],
+                    "smb": {
+                        "join_ou": null
+                    },
+                    "uris": [
+                        "ldaps://ad01.prlb.flr.c360cloud.com"
+                    ]
+                },
+                "smtp": {
+                    "name": "GSE-FB01",
+                    "relay_host": null,
+                    "sender_domain": "purestorage.com"
+                },
+                "snmp_agents": {
+                    "management": {
+                        "engine_id": "80009e22056a92f2b603f927e97234f3",
+                        "version": "v2c"
+                    }
+                },
+                "snmp_managers": {},
+                "ssl_certs": [
+                    {
+                        "certificate": "-----BEGIN CERTIFICATE-----\nMIIFyjCCA7ICCQCE9DFpHeb8JzANBgkqhkiG9w0BAQsFADCBpjELMAkGA1UEBhMC\nVVMxDjAMBgNVBAgMBVRleGFzMQ8wDQYDVQQHDAZEYWxsYXMxFTATBgNVBAoMDFB1\ncmUgU3RvcmFnZTEeMBwGA1UECwwVUHJvZmVzc2lvbmFsIFNlcnZpY2VzMRgwFgYD\nVQQDDA9wdXJlc3RvcmFnZS5jb20xJTAjBgkqhkiG9w0BCQEWFmp3b29sZkBwdXJl\nc3RvcmFnZS5jb20wHhcNMjEwOTEwMTQwMDAyWhcNMjIwOTEwMTQwMDAyWjCBpjEL\nMAkGA1UEBhMCVVMxDjAMBgNVBAgMBVRleGFzMQ8wDQYDVQQHDAZEYWxsYXMxFTAT\nBgNVBAoMDFB1cmUgU3RvcmFnZTEeMBwGA1UECwwVUHJvZmVzc2lvbmFsIFNlcnZp\nY2VzMRgwFgYDVQQDDA9wdXJlc3RvcmFnZS5jb20xJTAjBgkqhkiG9w0BCQEWFmp3\nb29sZkBwdXJlc3RvcmFnZS5jb20wggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIK\nAoICAQDG+ruVj4W9/fvgG6zj3F2bk3ZvoyVUFfTMt9kR0MMFesneVjXwAC4Cbb09\nLz5tC0QOfn3DTKqL6W1IvO7r0PWScvzqdldeq9ffAwHZRGWqt4uLOkUnm6yHFVWx\nmbdXAqwZn932mNBqipPU8FOyWijKXzNDOVXS2aynYLt4jZn4HQTv3XPYu/wZSa4Z\nkHem35BfhB+njnvkPdzW6ToJIMFHfFZRnXDkSsFKQy/wJmamMmp8wcNHKsoZIvxj\nU5TOxvwILXDWNFH9Ok6bQ62VuSAx1Vyn/sdV/+qzpmpb3QevdTKJysZZf52mYOEY\npBvbDRIvzpQ3hAtGlWw6w8gS+S5Gw9kjfNWIfWO1TmK52TEK2BQr7PWtW9RnvMG0\nNq8qV0FbsRcOoTZUBi0HgDPpE4NrhtAdvU0/TzqIeWX4pqG1pCQU+ensKaEi2UGF\n1MWhg4k9yIx6ak6OKG/GbCGc7Hxqq2U7uf+Ql4irvAy0SzMVJNuKYpVHfRONQi1h\naTtKKGWnnlNY2dwBS+ivipYYabnpBmJCNRtLTjyffwI5Xb8vZxGsnzGceb50yT3i\nsq5dgpzWPgIJ6cRwUTF73htG9ExTNXUJXI/MkruSdg9VMxu2qNNdCSR64bpJLkLi\nnAIj611LN/iU8T04ohdhCBPGM77TW8yze/doPjPB2T2ain/AAwIDAQABMA0GCSqG\nSIb3DQEBCwUAA4ICAQBSykqRwg613BkczbbhMp66pKqKiTyruPVeAXM+KVjw0fot\naG5x3t8PrF653WM5nvTun5AKa8BAAU49LDMN465NSmYDpvaykTM1GJVFyklPHkEL\nV3fMMsPr+cJi/HT3ChV1qUsWAcFarqSA0nuW2o/8h385U2YVgI4tsIxPaGsDMaEM\nriR1TXsr3VRJndjbjR/XUUG+GM7iq6MjBIKduOz4Os5VVc0ozIlZbXW239r8HubL\nhXRiP6Eh4ePAnSusvvpjWiZuAnaEJh8skIhS5LdhlX4XZV/h22ny49SyTLhRDjwm\n2RIfQpXo5Tc2HHPoBpdAfLK/LNrOlMZwuC0l3L4BPmRB+nbHgwkTQCMAbKGcCAkV\nicRLJgjkq87CZeaL9SIHc4w8NXRE305Ha4/67UuxbUht2QjW+0ApUE21k1FbQhDr\nIJEUCeZvTPoXDV2ZKoH5R9CoBn0XjWzmToGUNcZBlEennAq2/7unnZ+JEMhZNVKF\nFoSvHcSwOt7ArCsM4Ffyihaol1vM2oIMWE/UtlNMLuOC9HWxZU44im7apHjw0tPc\nCLACmytx4aEBXEfG2D3oBA/Tbw8X3HDGfJ7jf7w2pEYTGJoIpj+A+p4ceasvgKBq\n8/biNz+qu7JfLfI4j4BFV246xmWAa6+ry1COippb4O4PWn23AZsYcMpPePnF2Q==\n-----END CERTIFICATE-----\n",
+                        "certificate_type": "array",
+                        "common_name": "purestorage.com",
+                        "country": "US",
+                        "email": "jwoolf@purestorage.com",
+                        "id": "be3e96c0-184c-2dfd-3dc6-fa709d412206",
+                        "intermediate_certificate": null,
+                        "issued_by": "purestorage.com",
+                        "issued_to": "purestorage.com",
+                        "key_size": 4096,
+                        "locality": "Dallas",
+                        "name": "global",
+                        "organization": "Pure Storage",
+                        "organizational_unit": "Professional Services",
+                        "passphrase": null,
+                        "private_key": null,
+                        "state": "Texas",
+                        "status": "imported",
+                        "valid_from": "1631282402000",
+                        "valid_to": "1662818402000"
+                    }
+                ],
+                "syslog": []
+            }
+        }
+    }
+}
+
+TASK [pure_ds : Get facts for 172.29.10.190] ***********************************
+ok: [localhost]
+
+TASK [pure_ds : Debug output] **************************************************
+ok: [localhost] => {
+    "msg": {
+        "changed": false,
+        "failed": false,
+        "purefb_info": {
+            "config": {
+                "alert_watchers": [
+                    {
+                        "enabled": true,
+                        "id": "3d9ff2da-c6a5-d4a7-3599-13876f6e1d36",
+                        "minimum_notification_severity": "info",
+                        "name": "gse-mde-alerts-aaaad3bsacamd2v5nyeka6sgti@purestorage.slack.com"
+                    },
+                    {
+                        "enabled": true,
+                        "id": "7f4a0f15-516b-385f-dd52-b37db9d9d517",
+                        "minimum_notification_severity": "info",
+                        "name": "rkemp@purestorage.com"
+                    }
+                ],
+                "array_management": {
+                    "base_dn": "DC=prlb,DC=flr,DC=c360cloud,DC=com",
+                    "bind_password": "****",
+                    "bind_user": "CN=Administrator,CN=Users,DC=prlb,DC=flr,DC=c360cloud,DC=com",
+                    "ca_certificate": {
+                        "id": null,
+                        "name": null,
+                        "resource_type": null
+                    },
+                    "ca_certificate_group": {
+                        "id": null,
+                        "name": null,
+                        "resource_type": null
+                    },
+                    "enabled": true,
+                    "id": "ca359010-136e-8136-bdd9-d2cf49efb014",
+                    "management": {
+                        "user_login_attribute": null,
+                        "user_object_class": null
+                    },
+                    "name": "management",
+                    "nfs": {
+                        "nis_domains": [],
+                        "nis_servers": []
+                    },
+                    "services": [
+                        "management"
+                    ],
+                    "smb": {
+                        "join_ou": null
+                    },
+                    "uris": [
+                        "ldaps://ad01.prlb.flr.c360cloud.com"
+                    ]
+                },
+                "banner": {
+                    "login_banner": "\n"
+                },
+                "certificate_groups": {
+                    "id": "08bc5575-b6d6-e5f3-732c-ef24d9f87036",
+                    "name": "_default_replication_certs"
+                },
+                "directory_service_roles": {
+                    "array_admin": {
+                        "group": "Pure Array Admins",
+                        "group_base": "OU=Pure Storage"
+                    },
+                    "ops_admin": {
+                        "group": "Pure Operation Admins",
+                        "group_base": "OU=Pure Storage"
+                    },
+                    "readonly": {
+                        "group": "Pure RO Users",
+                        "group_base": "OU=Pure Storage"
+                    },
+                    "storage_admin": {
+                        "group": "Pure Storage Admins",
+                        "group_base": "OU=Pure Storage"
+                    }
+                },
+                "dns": {
+                    "domain": "prlb.flr.c360cloud.com",
+                    "name": "GSE-FB01",
+                    "nameservers": [
+                        "172.29.10.252",
+                        "172.29.10.253"
+                    ],
+                    "search": null
+                },
+                "nfs_directory_service": {
+                    "base_dn": null,
+                    "bind_password": null,
+                    "bind_user": null,
+                    "ca_certificate": {
+                        "id": null,
+                        "name": null,
+                        "resource_type": null
+                    },
+                    "ca_certificate_group": {
+                        "id": null,
+                        "name": null,
+                        "resource_type": null
+                    },
+                    "enabled": false,
+                    "id": "26009e69-6586-2d23-4c73-36ff8e0ead28",
+                    "management": {
+                        "user_login_attribute": null,
+                        "user_object_class": null
+                    },
+                    "name": "nfs",
+                    "nfs": {
+                        "nis_domains": [],
+                        "nis_servers": []
+                    },
+                    "services": [
+                        "nfs"
+                    ],
+                    "smb": {
+                        "join_ou": null
+                    },
+                    "uris": []
+                },
+                "ntp": [
+                    "time.purestorage.com",
+                    "time1.purestorage.com"
+                ],
+                "smb_directory_service": {
+                    "base_dn": "DC=prlb,DC=flr,DC=c360cloud,DC=com",
+                    "bind_password": "****",
+                    "bind_user": "CN=Administrator,CN=Users,DC=prlb,DC=flr,DC=c360cloud,DC=com",
+                    "ca_certificate": {
+                        "id": null,
+                        "name": null,
+                        "resource_type": null
+                    },
+                    "ca_certificate_group": {
+                        "id": null,
+                        "name": null,
+                        "resource_type": null
+                    },
+                    "enabled": true,
+                    "id": "89eb4a9f-44f6-5668-4a23-e596c2014459",
+                    "management": {
+                        "user_login_attribute": null,
+                        "user_object_class": null
+                    },
+                    "name": "smb",
+                    "nfs": {
+                        "nis_domains": [],
+                        "nis_servers": []
+                    },
+                    "services": [
+                        "smb"
+                    ],
+                    "smb": {
+                        "join_ou": null
+                    },
+                    "uris": [
+                        "ldaps://ad01.prlb.flr.c360cloud.com"
+                    ]
+                },
+                "smtp": {
+                    "name": "GSE-FB01",
+                    "relay_host": null,
+                    "sender_domain": "purestorage.com"
+                },
+                "snmp_agents": {
+                    "management": {
+                        "engine_id": "80009e22056a92f2b603f927e97234f3",
+                        "version": "v2c"
+                    }
+                },
+                "snmp_managers": {},
+                "ssl_certs": [
+                    {
+                        "certificate": "-----BEGIN CERTIFICATE-----\nMIIFyjCCA7ICCQCE9DFpHeb8JzANBgkqhkiG9w0BAQsFADCBpjELMAkGA1UEBhMC\nVVMxDjAMBgNVBAgMBVRleGFzMQ8wDQYDVQQHDAZEYWxsYXMxFTATBgNVBAoMDFB1\ncmUgU3RvcmFnZTEeMBwGA1UECwwVUHJvZmVzc2lvbmFsIFNlcnZpY2VzMRgwFgYD\nVQQDDA9wdXJlc3RvcmFnZS5jb20xJTAjBgkqhkiG9w0BCQEWFmp3b29sZkBwdXJl\nc3RvcmFnZS5jb20wHhcNMjEwOTEwMTQwMDAyWhcNMjIwOTEwMTQwMDAyWjCBpjEL\nMAkGA1UEBhMCVVMxDjAMBgNVBAgMBVRleGFzMQ8wDQYDVQQHDAZEYWxsYXMxFTAT\nBgNVBAoMDFB1cmUgU3RvcmFnZTEeMBwGA1UECwwVUHJvZmVzc2lvbmFsIFNlcnZp\nY2VzMRgwFgYDVQQDDA9wdXJlc3RvcmFnZS5jb20xJTAjBgkqhkiG9w0BCQEWFmp3\nb29sZkBwdXJlc3RvcmFnZS5jb20wggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIK\nAoICAQDG+ruVj4W9/fvgG6zj3F2bk3ZvoyVUFfTMt9kR0MMFesneVjXwAC4Cbb09\nLz5tC0QOfn3DTKqL6W1IvO7r0PWScvzqdldeq9ffAwHZRGWqt4uLOkUnm6yHFVWx\nmbdXAqwZn932mNBqipPU8FOyWijKXzNDOVXS2aynYLt4jZn4HQTv3XPYu/wZSa4Z\nkHem35BfhB+njnvkPdzW6ToJIMFHfFZRnXDkSsFKQy/wJmamMmp8wcNHKsoZIvxj\nU5TOxvwILXDWNFH9Ok6bQ62VuSAx1Vyn/sdV/+qzpmpb3QevdTKJysZZf52mYOEY\npBvbDRIvzpQ3hAtGlWw6w8gS+S5Gw9kjfNWIfWO1TmK52TEK2BQr7PWtW9RnvMG0\nNq8qV0FbsRcOoTZUBi0HgDPpE4NrhtAdvU0/TzqIeWX4pqG1pCQU+ensKaEi2UGF\n1MWhg4k9yIx6ak6OKG/GbCGc7Hxqq2U7uf+Ql4irvAy0SzMVJNuKYpVHfRONQi1h\naTtKKGWnnlNY2dwBS+ivipYYabnpBmJCNRtLTjyffwI5Xb8vZxGsnzGceb50yT3i\nsq5dgpzWPgIJ6cRwUTF73htG9ExTNXUJXI/MkruSdg9VMxu2qNNdCSR64bpJLkLi\nnAIj611LN/iU8T04ohdhCBPGM77TW8yze/doPjPB2T2ain/AAwIDAQABMA0GCSqG\nSIb3DQEBCwUAA4ICAQBSykqRwg613BkczbbhMp66pKqKiTyruPVeAXM+KVjw0fot\naG5x3t8PrF653WM5nvTun5AKa8BAAU49LDMN465NSmYDpvaykTM1GJVFyklPHkEL\nV3fMMsPr+cJi/HT3ChV1qUsWAcFarqSA0nuW2o/8h385U2YVgI4tsIxPaGsDMaEM\nriR1TXsr3VRJndjbjR/XUUG+GM7iq6MjBIKduOz4Os5VVc0ozIlZbXW239r8HubL\nhXRiP6Eh4ePAnSusvvpjWiZuAnaEJh8skIhS5LdhlX4XZV/h22ny49SyTLhRDjwm\n2RIfQpXo5Tc2HHPoBpdAfLK/LNrOlMZwuC0l3L4BPmRB+nbHgwkTQCMAbKGcCAkV\nicRLJgjkq87CZeaL9SIHc4w8NXRE305Ha4/67UuxbUht2QjW+0ApUE21k1FbQhDr\nIJEUCeZvTPoXDV2ZKoH5R9CoBn0XjWzmToGUNcZBlEennAq2/7unnZ+JEMhZNVKF\nFoSvHcSwOt7ArCsM4Ffyihaol1vM2oIMWE/UtlNMLuOC9HWxZU44im7apHjw0tPc\nCLACmytx4aEBXEfG2D3oBA/Tbw8X3HDGfJ7jf7w2pEYTGJoIpj+A+p4ceasvgKBq\n8/biNz+qu7JfLfI4j4BFV246xmWAa6+ry1COippb4O4PWn23AZsYcMpPePnF2Q==\n-----END CERTIFICATE-----\n",
+                        "certificate_type": "array",
+                        "common_name": "purestorage.com",
+                        "country": "US",
+                        "email": "jwoolf@purestorage.com",
+                        "id": "be3e96c0-184c-2dfd-3dc6-fa709d412206",
+                        "intermediate_certificate": null,
+                        "issued_by": "purestorage.com",
+                        "issued_to": "purestorage.com",
+                        "key_size": 4096,
+                        "locality": "Dallas",
+                        "name": "global",
+                        "organization": "Pure Storage",
+                        "organizational_unit": "Professional Services",
+                        "passphrase": null,
+                        "private_key": null,
+                        "state": "Texas",
+                        "status": "imported",
+                        "valid_from": "1631282402000",
+                        "valid_to": "1662818402000"
+                    }
+                ],
+                "syslog": []
+            }
+        }
+    }
+}
+
+PLAY [Pure Storage FlashBlade Settings for NTP] ********************************
+
+PLAY [Pure Storage FlashBlade Settings for Syslog servers] *********************
+
+PLAY [Pure Storage FlashBlade Settings for SNMP] *******************************
+
+PLAY [Pure Storage FlashBlade Settings for SMTP] *******************************
+
+PLAY [Pure Storage FlashBlade Settings for PhoneHome] **************************
+
+PLAY [Pure Storage FlashBlade Settings for Proxy] ******************************
+
+PLAY [Pure Storage FlashBlade Settings for Alert Email] ************************
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=9    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+

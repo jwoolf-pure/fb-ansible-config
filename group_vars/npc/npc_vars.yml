@@ -95,7 +95,7 @@ ds:
   ds_uri: ldaps://ad01.prlb.flr.c360cloud.com
   base_dn: DC=prlb,DC=flr,DC=c360cloud,DC=com
   bind_user: CN=Administrator,CN=Users,DC=prlb,DC=flr,DC=c360cloud,DC=com
-  bind_password: yourpassword
+  bind_password: Osmium76!
 
 all_ds_roles:
   ds_roles:

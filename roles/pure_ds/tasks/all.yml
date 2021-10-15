@@ -1,25 +1,28 @@
 ---
-#  - name: Get facts for {{ url }}
-#    purefa_info:
-#      gather_subset: all
-#      fa_url: "{{ url }}"
-#      api_token: "{{ api }}"
-#    register: array_facts
-#
-#  - set_fact:
-#      array_base_dn: "{{ array_facts.purefa_info.config.directory_service.base_dn }}"
-#      array_bind_user: "{{ array_facts.purefa_info.config.directory_service.bind_user }}"
-#      array_uri: "{{ array_facts.purefa_info.config.directory_service.uri | join(',') }}"
-#
-#  # Delete Current Directory Service config if any of the current settings do not match standard
-#  - name: Clear Directory Services configuration for {{ url }}
-#    purefa_ds:
-#      state: absent
-#      fa_url: "{{ url }}"
-#      api_token: "{{ api }}"
-#    when: (array_base_dn != base_dn) or
-#          (array_bind_user != bind_user) or
-#          (array_uri != ds_uri)
+  - name: Get facts for {{ url }}
+    purefb_info:
+      gather_subset: config
+      fb_url: "{{ url }}"
+      api_token: "{{ api }}"
+    register: array_facts
+
+  - set_fact:
+      array_base_dn: "{{ array_facts.purefb_info.config.smb_directory_service.base_dn }}"
+      array_bind_user: "{{ array_facts.purefb_info.config.smb_directory_service.bind_user }}"
+
+  - name: Debug output
+    debug:
+      msg: "{{ array_facts }}"
+
+  # Delete Current Directory Service config if any of the current settings do not match standard
+  - name: Clear Directory Services configuration for {{ url }}
+    purefb_ds:
+      state: absent
+      fb_url: "{{ url }}"
+      api_token: "{{ api }}"
+    when: (array_base_dn != ds.base_dn) or
+          (array_bind_user != ds.bind_user)
+#          (array_uri != ds.ds_uri)
 
   # Create or recreate Directory Service config
   - name: Configure Directory Services for {{ name }}
