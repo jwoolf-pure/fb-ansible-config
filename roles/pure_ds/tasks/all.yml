@@ -16,7 +16,7 @@
 
   # Delete Current Directory Service config if base_dn or bind_user of the current settings do not match standard
   - name: Clear Directory Services configuration for {{ url }}
-    purefb_ds:
+    purestorage.flashblade.purefb_ds:
       state: absent
       fb_url: "{{ url }}"
       api_token: "{{ api }}"
